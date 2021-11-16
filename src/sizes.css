@@ -1,0 +1,10 @@
+:root {
+  --padding: 1rem;
+  --padding-lg: 2rem;
+  --padding-sm: 0.5rem;
+  --margin-center: 0 auto;
+  --margin-y-lg: 2rem;
+  --width-sm: 500px;
+  --width-md: 750px;
+  --width-lg: 1000px;
+}
