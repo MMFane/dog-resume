@@ -1,0 +1,20 @@
+#headshot {
+  width: 300px;
+  height: 200px;
+  background: url("./daisy-headshot.jpg") center/cover no-repeat;
+  border: 10px solid var(--polaroid-border);
+  border-radius: var(--border-radius);
+  transform: rotate(-10deg);
+  margin: var(--margin-lg);
+  position: absolute;
+  top: -70px;
+  left: 0;
+}
+
+#headshot:after {
+  content: url("./paperclip.png");
+  position: absolute;
+  top: -15%;
+  left: 5%;
+  transform: rotate(-9deg);
+}

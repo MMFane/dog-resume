@@ -3,4 +3,8 @@
   --text: #555;
   --text-inv: #eee4df;
   --background: #dfdfeb;
+  --polaroid-border: #efefef;
+  --shadow-lt: #rgba(0, 0, 0, 0.25);
+  --shadow-md: #rgba(0, 0, 0, 0.5);
+  --shadow-dk: #rgba(0, 0, 0, 0.75);
 }

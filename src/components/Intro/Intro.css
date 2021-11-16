@@ -1,0 +1,18 @@
+#intro {
+  background-color: var(--background);
+  margin: var(--margin-center);
+  margin-top: var(--margin-lg);
+  padding: var(--padding-md);
+  max-width: var(--width-lg);
+  position: relative;
+}
+
+#intro p {
+  padding-left: 375px;
+  min-width: var(--width-min);
+}
+
+h1 {
+  text-align: right;
+  margin: var(--margin-sm) var(--margin-lg) var(--margin-sm) var(--margin-sm);
+}

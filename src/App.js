@@ -1,18 +1,25 @@
 import "./App.css";
+import { intro, tricks } from "./data/mockup";
+import Intro from "./components/Intro/Intro";
+import TrickList from "./components/TrickList/TrickList";
 
-function App() {
+export default function App() {
   return (
     <div id="resume">
       <header>
         <nav>Navigation</nav>
       </header>
       <section className="body">
-        <article id="intro">Intro</article>
-        <article>Utility Tricks</article>
-        <article>Fun Tricks</article>
+        <Intro intro={intro} />
+        <article>
+          Utility Tricks
+          <TrickList />
+        </article>
+        <article>
+          Fun Tricks
+          <TrickList />
+        </article>
       </section>
     </div>
   );
 }
-
-export default App;

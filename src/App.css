@@ -1,14 +1,5 @@
 header {
   background-color: var(--accent);
   color: var(--text-inv);
-  padding: var(--padding);
-}
-
-#intro {
-  background-color: var(--background);
-  margin: var(--margin-center);
-  margin-top: var(--margin-y-lg);
-  margin-bottom: var(--margin-y-lg);
-  padding: var(--padding);
-  max-width: var(--width-lg);
+  padding: var(--padding-md);
 }

@@ -1,9 +1,13 @@
 :root {
-  --padding: 1rem;
+  --border-radius: 0.5rem;
   --padding-lg: 2rem;
+  --padding-md: 1rem;
   --padding-sm: 0.5rem;
   --margin-center: 0 auto;
-  --margin-y-lg: 2rem;
+  --margin-lg: 2rem;
+  --margin-md: 1rem;
+  --margin-sm: 0.5rem;
+  --width-min: 275px;
   --width-sm: 500px;
   --width-md: 750px;
   --width-lg: 1000px;
