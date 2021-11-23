@@ -1,13 +1,25 @@
 import "./Intro.css";
-import Headshot from "../Photo/Headshot";
+import Photo from "../Photo/Photo";
+import photoHeadshot from "../../data/images/daisy/daisy-headshot.jpg";
 
 export default function Intro({ intro }) {
+  const photoWidth = 300;
+  const photoHeight = 200;
+  const photoAngle = -10;
+
   return (
     <>
       <article id="intro">
-        <Headshot />
-        <div id="intro-text">
-          <div id="spacer"></div>
+        <Photo
+          width={photoWidth}
+          height={photoHeight}
+          angle={photoAngle}
+          top={"-70px"}
+          left={"-30px"}
+          image={photoHeadshot}
+        />
+        <div className="flex">
+          <div className="photo-spacer" style={{ minWidth: photoWidth }}></div>
           <div>
             <h1>Introducing Daisy Yeager</h1>
             <p>{intro}</p>

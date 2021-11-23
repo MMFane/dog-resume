@@ -11,3 +11,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background);
 }
+
+.flex {
+  display: flex;
+}
+
+.photo-spacer {
+  margin: 0 var(--margin-sm);
+}

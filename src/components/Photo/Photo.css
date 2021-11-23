@@ -1,0 +1,9 @@
+.photo {
+  background: url("../../data/images/daisy-placeholder.jpg") center/cover
+    no-repeat;
+  border: 10px solid var(--polaroid-border);
+  border-radius: var(--border-radius);
+  margin: var(--margin-lg);
+  position: absolute;
+  box-shadow: -5px 10px 10px var(--shadow-xlt);
+}

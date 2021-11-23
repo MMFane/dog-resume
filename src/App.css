@@ -11,6 +11,7 @@ article {
   max-width: var(--width-lg);
   margin: var(--margin-center);
   margin-top: var(--margin-lg);
+  position: relative;
 }
 
 .label {

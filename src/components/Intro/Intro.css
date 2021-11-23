@@ -11,11 +11,10 @@
   min-width: var(--width-min);
 }
 
-#intro-text {
-  display: flex;
-}
-
-#spacer {
-  min-width: var(--photo);
-  height: var(--photo) / 2;
+#intro .photo:before {
+  content: url("./paperclip.png");
+  position: absolute;
+  top: -19%;
+  left: 5%;
+  transform: rotate(-9deg);
 }
