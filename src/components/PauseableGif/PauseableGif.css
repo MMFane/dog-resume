@@ -1,0 +1,20 @@
+.pauseable-gif {
+  width: 256px;
+  height: auto;
+}
+.pauseable-gif img {
+  width: 256px;
+  height: auto;
+}
+
+.pause {
+  position: relative;
+}
+
+.play-icon {
+  position: absolute;
+  top: 30%;
+  left: 45%;
+  color: rgba(256, 256, 256, 0.55);
+  font-size: 3rem;
+}

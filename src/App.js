@@ -12,12 +12,11 @@ export default function App() {
       <section className="body">
         <Intro intro={intro} />
         <article>
-          Utility Tricks
-          <TrickList />
+          <TrickList title="Utility Tricks" tricks={tricks.utility} />
         </article>
         <article>
           Fun Tricks
-          <TrickList />
+          <TrickList title="Party Tricks" tricks={tricks.party} />
         </article>
       </section>
     </div>
