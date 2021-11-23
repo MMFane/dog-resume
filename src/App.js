@@ -1,5 +1,6 @@
 import "./App.css";
-import { intro, tricks } from "./data/mockup";
+import { intro, tricks, trickCount } from "./data/tricks";
+import { likes, dislikes } from "./data/like-dislikes";
 import Intro from "./components/Intro/Intro";
 import TrickList from "./components/TrickList/TrickList";
 
@@ -12,14 +13,23 @@ export default function App() {
       <section className="body">
         <Intro intro={intro} />
         <article>
-          <h2>Tricks</h2>
+          <h2>Tricks ({trickCount})</h2>
           <TrickList lists={tricks} />
         </article>
         <article>
           <h2>Likes and Dislikes</h2>
-        </article>
-        <article>
-          <h2>Favorite Foods</h2>
+          <h3>Likes</h3>
+          <ul>
+            {likes.map((like) => {
+              return <li>{like}</li>;
+            })}
+          </ul>
+          <h3>Dislikes</h3>
+          <ul>
+            {dislikes.map((like) => {
+              return <li>{like}</li>;
+            })}
+          </ul>
         </article>
         <article>
           <h2>Things I'm Working On</h2>

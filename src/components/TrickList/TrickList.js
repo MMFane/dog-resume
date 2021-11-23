@@ -9,11 +9,14 @@ export default function TrickList({ lists }) {
       <Collapse>
         {Object.values(lists).map((list, index) => {
           return (
-            <Panel header={Object.keys(lists)[index]} key={`list-${index}}`}>
+            <Panel
+              header={`${Object.keys(lists)[index]} (${list.length})`}
+              key={`list-${index}}`}
+            >
               <Collapse>
                 {list.map((trick) => {
                   return (
-                    <Panel header={`Verbal Cue: "${trick.cue}"`} key={trick.id}>
+                    <Panel header={`"${trick.cue}"`} key={trick.id}>
                       <div class="collapse-content">
                         <div class="collapse-section">
                           <p class="label">Hand Signal</p>
