@@ -1,13 +1,30 @@
-.trick-list {
-  padding: var(--padding-md);
-  background-color: var(--background-md);
-  border-radius: var(--border-radius);
-  max-width: var(--width-lg);
-  margin: var(--margin-center);
-}
-
 .trick-list ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+.trick-list .collapse-content,
+.trick-list .collapse-content .collapse-section {
+  display: flex;
+}
+
+.trick-list .collapse-content {
+  flex-wrap: wrap;
+}
+
+.trick-list .collapse-content .collapse-section {
+  flex-direction: column;
+  padding-right: var(--padding-md);
+  max-width: var(--width-min-plus-pad);
+}
+
+.trick-list .collapse-content .collapse-section:last-of-type {
+  padding-right: 0;
+}
+
+.trick-list .collapse-content .collapse-section img {
+  width: var(--width-min);
+  height: auto;
 }

@@ -1,27 +1,46 @@
 import "./TrickList.css";
 import PauseableGif from "../PauseableGif/PauseableGif";
+import { Collapse } from "antd";
+const { Panel } = Collapse;
 
-export default function TrickList({ title, tricks }) {
-  console.log(tricks);
-  console.log(title);
+export default function TrickList({ lists }) {
   return (
     <section className="trick-list">
-      <ul>
-        <h2>{title}</h2>
-        {tricks.map((trick, index) => {
+      <Collapse>
+        {Object.values(lists).map((list, index) => {
           return (
-            <li key={`trick-${index}`}>
-              <div>
-                <h3>{trick.cue}</h3>
-                <p>{trick.description}</p>
-                <p>{trick.handSignal}</p>
-                <img src={trick.handSignalImg} alt="" />
-                <PauseableGif video={trick.video} slate={trick.slate} />
-              </div>
-            </li>
+            <Panel header={Object.keys(lists)[index]} key={`list-${index}}`}>
+              <Collapse>
+                {list.map((trick) => {
+                  return (
+                    <Panel header={`Verbal Cue: "${trick.cue}"`} key={trick.id}>
+                      <div class="collapse-content">
+                        <div class="collapse-section">
+                          <p class="label">Hand Signal</p>
+                          <p>{trick.handSignal}</p>
+                          <img src={trick.handSignalImg} alt="" />
+                        </div>
+                        <div class="collapse-section">
+                          <p class="label">What I Should Do</p>
+                          <p>{trick.description}</p>
+                          <PauseableGif
+                            video={trick.video}
+                            slate={trick.slate}
+                          />
+                        </div>
+                        <div class="collapse-section">
+                          <p class="label">Troubleshooting</p>
+                          <p>{trick.troubleshooting}</p>
+                        </div>
+                      </div>
+                    </Panel>
+                  );
+                })}
+              </Collapse>
+            </Panel>
           );
         })}
-      </ul>
+      </Collapse>
     </section>
   );
 }

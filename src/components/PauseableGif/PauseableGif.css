@@ -1,9 +1,9 @@
 .pauseable-gif {
-  width: 256px;
+  width: var(--width-min);
   height: auto;
 }
 .pauseable-gif img {
-  width: 256px;
+  width: var(--width-min);
   height: auto;
 }
 
@@ -15,6 +15,6 @@
   position: absolute;
   top: 30%;
   left: 45%;
-  color: rgba(256, 256, 256, 0.55);
+  color: rgba(256, 256, 256, 0.75);
   font-size: 3rem;
 }

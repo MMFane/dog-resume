@@ -3,3 +3,16 @@ header {
   color: var(--text-inv);
   padding: var(--padding-md);
 }
+
+article {
+  padding: var(--padding-md);
+  background-color: var(--background-md);
+  border-radius: var(--border-radius);
+  max-width: var(--width-lg);
+  margin: var(--margin-center);
+  margin-top: var(--margin-lg);
+}
+
+.label {
+  font-weight: bold;
+}

@@ -12,11 +12,38 @@ export default function App() {
       <section className="body">
         <Intro intro={intro} />
         <article>
-          <TrickList title="Utility Tricks" tricks={tricks.utility} />
+          <h2>Tricks</h2>
+          <TrickList lists={tricks} />
         </article>
         <article>
-          Fun Tricks
-          <TrickList title="Party Tricks" tricks={tricks.party} />
+          <h2>Likes and Dislikes</h2>
+        </article>
+        <article>
+          <h2>Favorite Foods</h2>
+        </article>
+        <article>
+          <h2>Things I'm Working On</h2>
+          <ul>
+            <li>
+              Scooters, skateboards, hoverboards, and bikes can really bother
+              me, especially when they surprise me or fly by very close. I need
+              to get some distance from them when possible and lots of praise
+              when I don't react!
+            </li>
+            <li>
+              I often jump on people when I'm excited. We're working on telling
+              me to "keep four on the floor" and I could use lots of positive
+              feedback when I succeed. It often works to have me a little
+              distant when people greet me and to have folks kneel down and pet
+              me on the ground to reinforce that's where I should be.
+            </li>
+            <li>
+              I'm a lot better than I used to be, but I sometimes still like to
+              fight the vaccuum. It helps to have someone other than the
+              vacuum-er keep me a little distant and give me treats, praise, and
+              play while the vacuum is running.
+            </li>
+          </ul>
         </article>
       </section>
     </div>
