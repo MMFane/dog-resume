@@ -1,8 +1,6 @@
 import placeholder from "./images/placeholder.jpg";
 import placeholderVideo from "./images/placeholder.gif";
 import placeholderVideoSlate from "./images/video-title-slate.jpg";
-const intro =
-  "Hi, my name is Daisy! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 let trickCount = 0;
 const tricks = {
@@ -92,6 +90,26 @@ const tricks = {
       slate: placeholderVideoSlate,
       troubleshooting:
         "My humans try to only say my name when praising me, so I have a good association with it. I don't always come over when you just say my name, since that's not its only purpose, but I often do when I am in a good mood.",
+    },
+    {
+      cue: "This way!",
+      description:
+        "I give you my attention and follow you instead of going the way I was going",
+      handSignal: "N/A",
+      handSignalImg: placeholder,
+      video: placeholderVideo,
+      slate: placeholderVideoSlate,
+      troubleshooting: "N/A",
+    },
+    {
+      cue: "Potty",
+      description: "I go to the bathroom if I need to",
+      handSignal: "Point an open hand down to the ground at ~45 degree angle",
+      handSignalImg: placeholder,
+      video: placeholderVideo,
+      slate: placeholderVideoSlate,
+      troubleshooting:
+        "I don't really go on command yet, but this can help me know what you want me to do",
     },
   ],
   Movement: [
@@ -219,15 +237,16 @@ const tricks = {
       slate: placeholderVideoSlate,
       troubleshooting: "If I don't listen you may need to come closer",
     },
+
     {
-      cue: "Potty",
-      description: "I go to the bathroom if I need to",
-      handSignal: "Point an open hand down to the ground at ~45 degree angle",
+      cue: "Trun <left/right>",
+      description: "I turn the direction you tell me to turn",
+      handSignal: "Hold an arm out to the correct direction",
       handSignalImg: placeholder,
       video: placeholderVideo,
       slate: placeholderVideoSlate,
       troubleshooting:
-        "I don't really go on command yet, but this can help me know what you want me to do",
+        'We\'re still working on this one, so right now it mostly does the same thing as "This way"',
     },
   ],
   Manners: [
@@ -462,4 +481,4 @@ for (let list in tricks) {
   }
 }
 
-export { intro, tricks, trickCount };
+export { tricks, trickCount };

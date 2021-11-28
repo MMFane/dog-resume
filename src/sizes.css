@@ -1,6 +1,7 @@
 :root {
-  --border-radius: 0.5rem;
+  --border-radius: 0.25rem;
   --margin-center: 0 auto;
+  --margin-xlg: 3rem;
   --margin-lg: 2rem;
   --margin-md: 1rem;
   --margin-sm: 0.5rem;
@@ -8,6 +9,7 @@
   --padding-md: 1rem;
   --padding-sm: 0.5rem;
   --photo: 375px;
+  --shadow-height: 15px;
   --width-min: 275px;
   --width-min-plus-pad: 291px;
   --width-sm: 500px;

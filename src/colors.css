@@ -2,11 +2,13 @@
   --accent: #df7715;
   --text: #555;
   --text-inv: #eee4df;
-  --background: #eeeef8;
-  --background-md: #dfdfeb;
+  --background-lt: #f5f5fa;
+  --background-md: #ebebf5;
+  --background-dk: #dfdfeb;
   --polaroid-border: #ffffff;
   --shadow-xlt: rgba(0, 0, 0, 0.1);
   --shadow-lt: rgba(0, 0, 0, 0.25);
   --shadow-md: rgba(0, 0, 0, 0.5);
   --shadow-dk: rgba(0, 0, 0, 0.75);
+  --shadow-red: rgba(128, 0, 0, 0.25);
 }

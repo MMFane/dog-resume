@@ -1,20 +1,10 @@
 #intro {
   margin: var(--margin-center);
   margin-top: var(--margin-lg);
-  padding: var(--padding-md);
   max-width: var(--width-lg);
   position: relative;
-  box-shadow: 0 0 15px var(--shadow-xlt);
 }
 
 #intro p {
   min-width: var(--width-min);
-}
-
-#intro .photo:before {
-  content: url("./paperclip.png");
-  position: absolute;
-  top: -19%;
-  left: 5%;
-  transform: rotate(-9deg);
 }

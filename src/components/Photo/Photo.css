@@ -5,5 +5,12 @@
   border-radius: var(--border-radius);
   margin: var(--margin-lg);
   position: absolute;
-  box-shadow: -5px 10px 10px var(--shadow-xlt);
+  box-shadow: -3px 5px var(--shadow-height) var(--shadow-xlt);
+  z-index: 1000;
+}
+
+.paperclip {
+  content: url("../../data/images/paperclip.png");
+  position: absolute;
+  z-index: 1001;
 }
