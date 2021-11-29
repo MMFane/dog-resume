@@ -1,5 +1,5 @@
 import "./App.css";
-import { intro, details } from "./data/intro";
+import { intro, details, breeds } from "./data/intro";
 import { tricks, trickCount } from "./data/tricks";
 import { likes, dislikes } from "./data/like-dislikes";
 import Intro from "./components/Intro/Intro";
@@ -14,7 +14,7 @@ export default function App() {
     <div id="resume">
       <header className="pattern"></header>
       <section className="body">
-        <Intro intro={intro} details={details} />
+        <Intro intro={intro} details={details} breeds={breeds} />
         <article>
           <h2>Tricks ({trickCount})</h2>
           <div className="article-body">

@@ -2,7 +2,7 @@ import "./Intro.css";
 import Photo from "../Photo/Photo";
 import photoHeadshot from "../../data/images/daisy/daisy-headshot.jpg";
 
-export default function Intro({ intro, details }) {
+export default function Intro({ intro, details, breeds }) {
   const photoWidth = 300;
   const photoHeight = 200;
   const photoAngle = -10;
@@ -26,16 +26,31 @@ export default function Intro({ intro, details }) {
           <div className="photo-spacer" style={{ minWidth: photoWidth }}></div>
           <div className="article-body">
             <p>{intro}</p>
-            <ul>
+            <table>
               {Object.entries(details).map((detail, index) => {
                 return (
-                  <li key={`detail-${index}`}>
-                    <span className="label">{detail[0]}</span>{" "}
-                    <span>{detail[1]}</span>
-                  </li>
+                  <tr key={`detail-${index}`}>
+                    <td className="label">{detail[0]}</td>
+                    <td className="content">{detail[1]}</td>
+                  </tr>
                 );
               })}
-            </ul>
+
+              <tr key="breeds">
+                <td className="label">Breeds</td>
+                <td className="content">
+                  <ul>
+                    {Object.entries(breeds).map((breed, index) => {
+                      return (
+                        <li key={`breed-${index}`}>
+                          {breed[0]}: {breed[1]}%
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
       </article>

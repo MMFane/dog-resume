@@ -6,7 +6,7 @@ const intro =
 
 const today = moment();
 const birthday = moment([2018, 3, 14]);
-const adoptionDay = moment([2021, 3, 14]).format("MMMM Do YYYY");
+const adoptionDay = moment([2021, 2, 14]).format("MMMM Do YYYY");
 
 const ageYears = today.diff(birthday, "years");
 const ageMonths = today.diff(birthday, "months") % 12;
@@ -14,11 +14,16 @@ const ageMonths = today.diff(birthday, "months") % 12;
 const details = {
   "Adoption Day": adoptionDay,
   "Estimated Age": `${ageYears} years, ${ageMonths} months`,
-  "Breed Breakdown":
-    "60% Pitbull, 40% Australian Cattle Dog/Border Collie/Boxer",
   Color: "Red and white with spots",
   Sex: "Female",
   Weight: "66 lbs",
 };
 
-export { intro, details };
+const breeds = {
+  Pitbull: 60,
+  "Australian Cattle Dog": 15,
+  "Border Collie": 14,
+  Boxer: 11,
+};
+
+export { intro, details, breeds };
