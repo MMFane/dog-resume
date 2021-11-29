@@ -53,6 +53,7 @@ article .article-body {
 .body {
   position: relative;
   padding-bottom: var(--margin-lg);
+  flex-grow: 1;
 }
 
 .body::before {
@@ -62,6 +63,7 @@ article .article-body {
   position: absolute;
   opacity: 1%;
   background-image: url("./data/images/stripes.png");
+  pointer-events: none;
 }
 
 .label {

@@ -1,0 +1,19 @@
+nav {
+  background-color: var(--accent);
+  color: var(--text-inv);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: content-box;
+  max-width: var(--width-lg);
+  margin: 0 auto;
+}
+
+nav a {
+  color: var(--text-inv);
+  padding: var(--margin-sm) var(--margin-md);
+}
+
+nav a:hover {
+  background-color: var(--accent-dk);
+}
