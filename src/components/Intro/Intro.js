@@ -35,21 +35,6 @@ export default function Intro({ intro, details, breeds }) {
                   </tr>
                 );
               })}
-
-              <tr key="breeds">
-                <td className="label">Breeds</td>
-                <td className="content">
-                  <ul>
-                    {Object.entries(breeds).map((breed, index) => {
-                      return (
-                        <li key={`breed-${index}`}>
-                          {breed[0]}: {breed[1]}%
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </td>
-              </tr>
             </table>
           </div>
         </div>

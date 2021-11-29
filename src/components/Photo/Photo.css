@@ -20,7 +20,7 @@
   z-index: 1001;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .photo {
     position: unset;
     height: auto;

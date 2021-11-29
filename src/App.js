@@ -5,6 +5,7 @@ import Nav from "./components/Nav/Nav";
 import Tricks from "./pages/Tricks/Tricks";
 import Food from "./pages/Food/Food";
 import Personality from "./pages/Personality/Personality";
+import Breeds from "./pages/Breeds/Breeds";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -16,9 +17,10 @@ export default function App() {
         <Intro intro={intro} details={details} breeds={breeds} />
         <Nav />
         <Routes>
+          <Route path="/" element={<Tricks />} exact />
           <Route path="/food" element={<Food />} exact />
           <Route path="/personality" element={<Personality />} exact />
-          <Route path="/" element={<Tricks />} exact />
+          <Route path="/breeds" element={<Breeds />} exact />
         </Routes>
       </section>
       <footer className="pattern"></footer>

@@ -2,7 +2,7 @@ import moment from "moment";
 moment().format();
 
 const intro =
-  "Hi, my name is Daisy! I'm a sweet-hearted, sleepy tank of a pitbull loving life in the PNW.";
+  "Hi, my name is Daisy! I'm a sweet-hearted, sleepy absolute unit of a Pit Bull loving life in the PNW.";
 
 const today = moment();
 const birthday = moment([2018, 3, 14]);
@@ -20,10 +20,11 @@ const details = {
 };
 
 const breeds = {
-  Pitbull: 60,
-  "Australian Cattle Dog": 15,
-  "Border Collie": 14,
-  Boxer: 11,
+  "American Pit Bull Terrier": 45.9,
+  "American Staffordshire Terrier": 17.5,
+  "Australian Cattle Dog": 14.9,
+  "Border Collie": 11.5,
+  Boxer: 10.2,
 };
 
 export { intro, details, breeds };
