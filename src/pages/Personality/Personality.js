@@ -28,12 +28,23 @@ export default function Personality() {
         <h2>Play Style</h2>
         <div className="article-body">
           <p>
-            I'm a total tank and love running into other dogs and people. My
-            favorite games are wrestling, chase, trading hip bumps, and
-            "bulldozer." I love mouthing all over other dogs' necks, cheeks, and
-            legs. I'm pretty rough, but know how to self-handicap when I'm
-            playing with some gentler or smaller dogs I like.
+            I'm a total tank and love running into other dogs and people. I love
+            mouthing all over other dogs' necks, cheeks, and legs. I'm pretty
+            rough, but know how to self-handicap when I'm playing with gentler
+            or smaller dogs I like.
           </p>
+          <p>
+            I couldn't care less about fetch. I may chase a ball until I realize
+            it isn't prey, or chase the dog chasing the ball instead.
+          </p>
+          <p>My favorite games are </p>
+          <ul>
+            <li>wrestling</li>
+            <li>mouth jousting</li>
+            <li>trading hip bumps</li>
+            <li>chase</li>
+            <li>"bulldozer"</li>
+          </ul>
         </div>
       </article>
       <article>
@@ -53,14 +64,19 @@ export default function Personality() {
           <div className="article-body">
             <ul>
               <li>
-                Scooters, skateboards, hoverboards, and bikes can really bother
-                me, especially when they surprise me. I need distance from them
-                when possible and lots of praise when I don't react!
+                I'm and avid countersurfer. My parents are trying to teach me
+                better boundaries, but snagging food is pretty rewarding, so
+                it's been hard to learn.
               </li>
               <li>
                 I often jump on people when I'm excited. I'm working on keeping
                 four on the floor. It helps when folks kneel down to pet me to
                 reinforce that's where I should be.
+              </li>
+              <li>
+                Scooters, skateboards, hoverboards, and bikes can really bother
+                me, especially when they surprise me. I need distance from them
+                when possible and lots of praise when I don't react!
               </li>
               <li>
                 I still sometimes like to fight the vaccuum. What can I say?

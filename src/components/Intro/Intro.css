@@ -23,11 +23,11 @@ td.label {
   background-color: var(--accent);
   color: var(--text-inv);
   border-bottom: 1px solid var(--accent-dk);
-  flex-basis: 30%;
+  flex-basis: 40%;
 }
 
 td.content {
-  flex-basis: 70%;
+  flex-basis: 60%;
 }
 
 td {

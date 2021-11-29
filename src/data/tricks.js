@@ -239,7 +239,7 @@ const tricks = {
     },
 
     {
-      cue: "Trun <left/right>",
+      cue: "Turn <left/right>",
       description: "I turn the direction you tell me to turn",
       handSignal: "Hold an arm out to the correct direction",
       handSignalImg: placeholder,

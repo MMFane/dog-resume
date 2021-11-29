@@ -11,6 +11,7 @@ const likes = [
 const dislikes = [
   "Growly dogs",
   "Dogs who hump me",
+  "Some small dogs and puppies",
   "Being reached for, loomed over, or petted on the head",
   "Scooters and skateboards",
   "Getting wet",
