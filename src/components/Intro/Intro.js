@@ -14,10 +14,10 @@ export default function Intro({ intro, details }) {
           width={photoWidth}
           height={photoHeight}
           angle={photoAngle}
-          top={"70px"}
+          top={"50px"}
           left={"-50px"}
           image={photoHeadshot}
-          clipTop={"86px"}
+          clipTop={"67px"}
           clipLeft={"2px"}
           clipAngle={-25}
         />

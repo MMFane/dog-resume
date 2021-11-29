@@ -15,7 +15,7 @@ export default function Photo({
   clipTop,
 }) {
   return (
-    <div>
+    <div className="photo-container">
       <div
         className="photo"
         style={{

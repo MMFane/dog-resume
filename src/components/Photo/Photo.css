@@ -9,8 +9,29 @@
   z-index: 1000;
 }
 
+.photo-container {
+  display: flex;
+  justify-content: center;
+}
+
 .paperclip {
   content: url("../../data/images/paperclip.png");
   position: absolute;
   z-index: 1001;
+}
+
+@media (max-width: 500px) {
+  .photo {
+    position: unset;
+    height: auto;
+    margin: var(--margin-sm);
+  }
+
+  .photo-spacer {
+    display: none;
+  }
+
+  .paperclip {
+    display: none;
+  }
 }
