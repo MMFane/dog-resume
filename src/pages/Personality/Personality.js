@@ -64,7 +64,7 @@ export default function Personality() {
           <div className="article-body">
             <ul>
               <li>
-                I'm and avid countersurfer. My parents are trying to teach me
+                I'm an avid counter surfer. My parents are trying to teach me
                 better boundaries, but snagging food is pretty rewarding, so
                 it's been hard to learn.
               </li>

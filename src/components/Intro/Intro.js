@@ -27,14 +27,16 @@ export default function Intro({ intro, details, breeds }) {
           <div className="article-body">
             <p>{intro}</p>
             <table>
-              {Object.entries(details).map((detail, index) => {
-                return (
-                  <tr key={`detail-${index}`}>
-                    <td className="label">{detail[0]}</td>
-                    <td className="content">{detail[1]}</td>
-                  </tr>
-                );
-              })}
+              <tbody>
+                {Object.entries(details).map((detail, index) => {
+                  return (
+                    <tr key={`detail-${index}`}>
+                      <td className="label">{detail[0]}</td>
+                      <td className="content">{detail[1]}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
             </table>
           </div>
         </div>

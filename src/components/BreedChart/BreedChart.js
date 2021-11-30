@@ -19,8 +19,6 @@ Object.entries(breeds).forEach((breed, index) => {
   data.colors[breed[0]] = colors[index];
 });
 
-console.log(data);
-
 export default function BreedChart() {
   return <C3Chart data={data} />;
 }

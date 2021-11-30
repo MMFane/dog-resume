@@ -2,10 +2,10 @@ import moment from "moment";
 moment().format();
 
 const intro =
-  "Hi, my name is Daisy! I'm a sweet-hearted, sleepy absolute unit of a Pit Bull loving life in the PNW.";
+  "Hi, my name is Daisy! I'm a sweet-hearted, sleepy, tank of a Pit Bull loving life in the PNW.";
 
 const today = moment();
-const birthday = moment([2018, 3, 14]);
+const birthday = moment([2018, 2, 14]);
 const adoptionDay = moment([2021, 2, 14]).format("MMMM Do YYYY");
 
 const ageYears = today.diff(birthday, "years");

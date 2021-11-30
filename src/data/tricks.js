@@ -346,7 +346,7 @@ const tricks = {
       video: placeholderVideo,
       slate: placeholderVideoSlate,
       troubleshooting:
-        "Sometimes I'll lick your hand while a boop. That's OK, but my people prefer it when I don't lick and try to reward me more when I don't.",
+        "Sometimes I'll lick your hand while I boop. That's OK, but my people prefer it when I don't lick and try to reward me more when I don't.",
     },
     {
       cue: "Kiss",
