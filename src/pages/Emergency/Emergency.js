@@ -1,5 +1,7 @@
 import "./Emergency.css";
+import Photo from "../../components/Photo/Photo";
 import { contacts, services } from "../../data/emergency";
+import daisyEmergency from "../../data/images/daisy/daisy-emergency.jpg";
 import sam from "../../data/images/contacts/sam.jpg";
 import steve from "../../data/images/contacts/steve.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,34 +22,54 @@ function getImageByKey(key) {
 }
 
 export default function Emergency() {
+  const photoWidth = 300;
+  const photoHeight = 330;
+  const photoAngle = 15;
   return (
     <div>
       <article>
+        <Photo
+          width={photoWidth}
+          height={photoHeight}
+          angle={photoAngle}
+          bottom={"-50px"}
+          right={"-20px"}
+          image={daisyEmergency}
+          clipBottom={"-70px"}
+          clipRight={"220px"}
+          clipAngle={135}
+        />
         <h2>Emergency Contacts</h2>
-        <div className="article-body flex wrap">
-          {contacts.map((contact) => {
-            const photo = getImageByKey(contact.name.toLowerCase());
-            return (
-              <div className="contact" key={contact.name}>
-                {photo ? (
-                  <img src={photo} alt="" />
-                ) : (
-                  <FontAwesomeIcon icon={faAddressCard} className="default" />
-                )}
-                <div>
-                  <h3>{contact.name}</h3>
-                  <p>
-                    <FontAwesomeIcon icon={faPhone} />
-                    <a href={`tel:${contact.phone}`}>{contact.phone}</a>{" "}
-                  </p>
-                  <p>
-                    <FontAwesomeIcon icon={faEnvelope} />
-                    <a href={`mailto:${contact.email}`}>{contact.email}</a>
-                  </p>
+        <div className="flex">
+          <div className="article-body flex wrap">
+            {contacts.map((contact) => {
+              const photo = getImageByKey(contact.name.toLowerCase());
+              return (
+                <div className="contact" key={contact.name}>
+                  {photo ? (
+                    <img src={photo} alt="" />
+                  ) : (
+                    <FontAwesomeIcon icon={faAddressCard} className="default" />
+                  )}
+                  <div>
+                    <h3>{contact.name}</h3>
+                    <p>
+                      <FontAwesomeIcon icon={faPhone} />
+                      <a href={`tel:${contact.phone}`}>{contact.phone}</a>{" "}
+                    </p>
+                    <p>
+                      <FontAwesomeIcon icon={faEnvelope} />
+                      <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                    </p>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          <div
+            className="photo-spacer"
+            style={{ minWidth: photoWidth * 0.9 }}
+          ></div>
         </div>
       </article>
       <article>

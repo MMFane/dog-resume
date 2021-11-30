@@ -5,7 +5,7 @@ const likes = [
   "Chewing on bones and nylabones",
   "Playing with most other dogs",
   "Going to the dog park",
-  "Playing with toys, especially my flirt pole",
+  "Playing tug with toys, especially my flirt pole",
 ];
 
 const dislikes = [

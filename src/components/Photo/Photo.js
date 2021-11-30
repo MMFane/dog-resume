@@ -13,6 +13,7 @@ export default function Photo({
   clipLeft,
   clipRight,
   clipTop,
+  clipBottom,
 }) {
   return (
     <div className="photo-container">
@@ -35,6 +36,7 @@ export default function Photo({
           top: clipTop,
           left: clipLeft,
           right: clipRight,
+          bottom: clipBottom,
           transform: `rotate(${clipAngle}deg)`,
         }}
       ></div>
