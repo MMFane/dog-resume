@@ -1,0 +1,47 @@
+.address span {
+  display: block;
+  margin-left: var(--margin-sm);
+}
+
+.contact img {
+  width: 100px;
+  height: auto;
+}
+
+.contact img,
+svg.svg-inline--fa {
+  margin-right: var(--margin-sm);
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+
+svg.default {
+  font-size: 5.7rem;
+}
+
+svg.svg-inline--fa {
+  color: var(--accent-inv);
+  opacity: 50%;
+}
+
+.contact,
+.service {
+  background-color: var(--background-lt);
+  padding: var(--margin-md);
+  border-radius: var(--border-radius);
+  margin: var(--margin-sm);
+}
+
+.contact p,
+.service p {
+  margin-bottom: var(--margin-xsm);
+}
+
+.contact h3,
+.service h3 {
+  border-bottom: 1px solid var(--accent-inv);
+}
