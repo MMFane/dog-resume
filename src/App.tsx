@@ -7,29 +7,29 @@ const client = generateClient<Schema>();
 
 function App() {
   const { user, signOut } = useAuthenticator();
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+  const [dogs, setDogs] = useState<Array<Schema["Dog"]["type"]>>([]);
 
   useEffect(() => {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
+    client.models.Dog.observeQuery().subscribe({
+      next: (data) => setDogs([...data.items]),
     });
   }, []);
 
-  function createTodo() {
-    client.models.Todo.create({ content: window.prompt("Todo content") });
+  function createDog() {
+    client.models.Dog.create({ name: window.prompt("Dog content") });
   }
 
   return (
     <main>
-      <h1>{user?.signInDetails?.loginId}'s' todos</h1>
-      <button onClick={createTodo}>+ new</button>
+      <h1>{user?.signInDetails?.loginId}'s Dogs</h1>
+      <button onClick={createDog}>Add Dog</button>
       <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
+        {dogs.map((dog) => (
+          <li key={dog.id}>{dog.name}</li>
         ))}
       </ul>
       <div>
-        🥳 App successfully hosted. Try creating a new todo.
+        🥳 App successfully hosted. Try creating a new dog.
         <br />
         <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
           Review next step of this tutorial.
