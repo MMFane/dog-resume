@@ -19,13 +19,17 @@ function App() {
     client.models.Dog.create({ name: window.prompt("Dog content") });
   }
 
+  function deleteDog(id: string) {
+    client.models.Dog.delete({id})
+  }
+
   return (
     <main>
       <h1>{user?.signInDetails?.loginId}'s Dogs</h1>
       <button onClick={createDog}>Add Dog</button>
       <ul>
         {dogs.map((dog) => (
-          <li key={dog.id}>{dog.name}</li>
+          <li onClick={() => deleteDog(dog.id)} key={dog.id}>{dog.name}</li>
         ))}
       </ul>
       <div>
