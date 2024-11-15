@@ -39,8 +39,6 @@ function App() {
     client.models.Dog.delete({ id });
   }
 
-  console.log(dogs);
-
   return (
     <main className="min-h-full w-full bg-amber-50">
       <div className="sticky top-0 flex w-full justify-end bg-amber-400 p-1">
