@@ -28,7 +28,9 @@ function App() {
           Sign out
         </button>
       </div>
-      <Outlet />
+      <div className="p-8">
+        <Outlet />
+      </div>
     </main>
   );
 }
