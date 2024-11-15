@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDog } from '@fortawesome/free-solid-svg-icons';
+import { faDog, faWarning } from '@fortawesome/free-solid-svg-icons';
 
 type Inputs = {
   name: string;
@@ -37,11 +37,11 @@ function FormCreateDog() {
   }
 
   return (
-    <div className="container flex min-w-full flex-col items-center p-4">
+    <div className="flex flex-col items-center p-4">
       <h1 className="text-3xl font-bold text-amber-900">
         Add a Dog <FontAwesomeIcon icon={faDog} />
       </h1>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex w-96 flex-col">
         <div className="flex flex-col pt-4">
           <label htmlFor="name">Name</label>
           <input
@@ -50,10 +50,17 @@ function FormCreateDog() {
             placeholder="Fido"
             {...register('name', { required: true })}
           />
-          {errors.name && <span>Your dog's name is required</span>}
+          {errors.name && (
+            <span className="max-w-96 text-red-600">
+              <FontAwesomeIcon icon={faWarning} className="mr-1" />
+              Your dog's name is required. How else will we call them?
+            </span>
+          )}
         </div>
         <div className="flex flex-col pt-4">
-          <label htmlFor="description">Description</label>
+          <label htmlFor="description">
+            Description <span className="text-amber-600">(optional)</span>
+          </label>
           <input
             className="rounded-md border border-amber-600 p-1"
             id="description"
@@ -70,7 +77,8 @@ function FormCreateDog() {
             {...register('weight', { required: true })}
           />
           {errors.name && (
-            <span>
+            <span className="max-w-96 text-red-600">
+              <FontAwesomeIcon icon={faWarning} className="mr-1" />
               Your dog's weight is required so caretakers can dose her with
               medicine
             </span>
@@ -85,7 +93,8 @@ function FormCreateDog() {
             {...register('breed', { required: true })}
           />
           {errors.name && (
-            <span>
+            <span className="max-w-96 text-red-600">
+              <FontAwesomeIcon icon={faWarning} className="mr-1" />
               Your dog's breed is required so caretakers can deal with breed
               restrictions
             </span>
