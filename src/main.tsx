@@ -16,14 +16,16 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-  },
-  {
-    path: '/add-dog',
-    element: <FormCreateDog />,
-  },
-  {
-    path: '/dogs',
-    element: <DogList />,
+    children: [
+      {
+        path: '/add-dog',
+        element: <FormCreateDog />,
+      },
+      {
+        path: '/dogs',
+        element: <DogList />,
+      },
+    ],
   },
 ]);
 
