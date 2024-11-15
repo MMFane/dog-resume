@@ -8,6 +8,7 @@ import { Authenticator } from '@aws-amplify/ui-react';
 import { Amplify } from 'aws-amplify';
 import outputs from '../amplify_outputs.json';
 import '@aws-amplify/ui-react/styles.css';
+import FormCreateDog from './components/FormCreateDog.tsx';
 
 Amplify.configure(outputs);
 
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+  },
+  {
+    path: '/add-dog',
+    element: <FormCreateDog />,
   },
   {
     path: '/dogs',
