@@ -1,5 +1,6 @@
 import type { Schema } from '../../amplify/data/resource';
 import { generateClient } from 'aws-amplify/data';
+import { Link } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -25,7 +26,8 @@ function FormCreateDog() {
     reset();
   };
 
-  const notify = (name: string) => toast(`${name} added!`);
+  const notify = (name: string) =>
+    toast(<Link to={`/dogs`}>{name} added</Link>);
 
   async function createDog(data: Inputs) {
     await client.models.Dog.create(data);
