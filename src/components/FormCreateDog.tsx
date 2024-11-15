@@ -1,6 +1,8 @@
 import type { Schema } from '../../amplify/data/resource';
 import { generateClient } from 'aws-amplify/data';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 type Inputs = {
   name: string;
@@ -17,13 +19,16 @@ function FormCreateDog() {
     formState: { errors },
     reset,
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = data => {
-    createDog(data);
+  const onSubmit: SubmitHandler<Inputs> = async data => {
+    await createDog(data);
+    notify(data.name);
     reset();
   };
 
-  function createDog(data: Inputs) {
-    client.models.Dog.create(data);
+  const notify = (name: string) => toast(`${name} added!`);
+
+  async function createDog(data: Inputs) {
+    await client.models.Dog.create(data);
   }
 
   return (
@@ -70,6 +75,7 @@ function FormCreateDog() {
           className="mt-4 rounded-md bg-amber-700 p-3 text-white"
         />
       </form>
+      <ToastContainer />
     </div>
   );
 }
