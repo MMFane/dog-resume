@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { Schema } from '../../amplify/data/resource';
 import { generateClient } from 'aws-amplify/data';
+import DogCard from './DogCard';
 const client = generateClient<Schema>();
 
 function DogList() {
@@ -18,11 +19,9 @@ function DogList() {
 
   return (
     <div>
-      <ul>
+      <ul className="flex w-full p-4">
         {dogs.map(dog => (
-          <li onClick={() => deleteDog(dog.id)} key={dog.id}>
-            {dog.name} ({dog.description}), {dog.weight} (lbs)
-          </li>
+          <DogCard dog={dog} deleteDog={deleteDog} />
         ))}
       </ul>
     </div>
