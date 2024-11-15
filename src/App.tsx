@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import { useAuthenticator } from '@aws-amplify/ui-react';
 
 function App() {
@@ -8,12 +8,18 @@ function App() {
     <main className="min-h-full w-full bg-amber-50">
       <div className="sticky top-0 flex w-full items-center justify-between bg-amber-400 p-2">
         <div>
-          <a className="p-1" href={`/add-dog`}>
+          <Link
+            className="mr-3 rounded-md border border-amber-600 p-2 hover:bg-amber-500 active:bg-amber-600"
+            to={`/add-dog`}
+          >
             Add Dog
-          </a>
-          <a className="p-1" href={`/dogs`}>
+          </Link>
+          <Link
+            className="rounded-md border border-amber-600 p-2 hover:bg-amber-500 active:bg-amber-600"
+            to={`/dogs`}
+          >
             Your Dogs
-          </a>
+          </Link>
         </div>
         <button
           className="rounded-md bg-amber-700 p-3 text-white"
