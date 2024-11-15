@@ -1,4 +1,4 @@
-import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
+import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
 
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
@@ -7,29 +7,29 @@ specifies that any user authenticated via an API key can "create", "read",
 "update", and "delete" any "Todo" records.
 =========================================================================*/
 const schema = a.schema({
-    Dog: a
-        .model({
-            name: a.string(),
-            description: a.string(),
-            weight: a.integer(),
-            // breed: a.string() // can we limit to some list of breeds?
-            // birthdate: // what date type is available here?
-            // colors: // can we do an enum of allowed colors?
-        })
-        .authorization((allow) => [allow.owner()]),
+  Dog: a
+    .model({
+      name: a.string(),
+      description: a.string(),
+      weight: a.integer(),
+      breed: a.string(), // can we limit to some list of breeds?
+      // birthdate: // what date type is available here?
+      // colors: // can we do an enum of allowed colors?
+    })
+    .authorization(allow => [allow.owner()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
 
 export const data = defineData({
-    schema,
-    authorizationModes: {
-        defaultAuthorizationMode: "userPool",
-        // API Key is used for a.allow.public() rules
-        apiKeyAuthorizationMode: {
-            expiresInDays: 30,
-        },
+  schema,
+  authorizationModes: {
+    defaultAuthorizationMode: 'userPool',
+    // API Key is used for a.allow.public() rules
+    apiKeyAuthorizationMode: {
+      expiresInDays: 30,
     },
+  },
 });
 
 /*== STEP 2 ===============================================================

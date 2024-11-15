@@ -11,6 +11,7 @@ type Inputs = {
   name: string;
   description: string;
   weight: number;
+  breed: string;
 };
 
 const client = generateClient<Schema>();
@@ -61,7 +62,7 @@ function FormCreateDog() {
           />
         </div>
         <div className="flex flex-col pt-4">
-          <label htmlFor="description">Weight (lbs)</label>
+          <label htmlFor="weight">Weight (lbs)</label>
           <input
             className="rounded-md border border-amber-600 p-1"
             id="weight"
@@ -72,6 +73,21 @@ function FormCreateDog() {
             <span>
               Your dog's weight is required so caretakers can dose her with
               medicine
+            </span>
+          )}
+        </div>
+        <div className="flex flex-col pt-4">
+          <label htmlFor="breed">Breed</label>
+          <input
+            className="rounded-md border border-amber-600 p-1"
+            id="breed"
+            placeholder="Golden Retriever"
+            {...register('breed', { required: true })}
+          />
+          {errors.name && (
+            <span>
+              Your dog's breed is required so caretakers can deal with breed
+              restrictions
             </span>
           )}
         </div>

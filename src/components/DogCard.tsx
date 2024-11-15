@@ -31,7 +31,8 @@ function DogCard(props: DogCardProps) {
           </div>
           <div className="rounded-md p-2">
             <p className="italic text-amber-700">{props.dog.description}</p>
-            <p>Weight: {props.dog.weight} lbs</p>
+            <p>{props.dog.breed}</p>
+            <p>{props.dog.weight} lbs</p>
           </div>
         </div>
       </div>
