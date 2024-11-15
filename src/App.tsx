@@ -43,18 +43,18 @@ function App() {
 
   return (
     <main>
-      <h1>{user?.signInDetails?.loginId}'s Dogs</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="name">Name</label>
-      <input id="name" placeholder="Fido" {...register("name", { required: true })} />
-      {errors.name && <span>Your dog's name is required</span>}
-      <label htmlFor="description">Description</label>
-      <input id="description" placeholder="A bubbly, bouncy boy" {...register("description")} />
-      <label htmlFor="description">Weight (lbs)</label>
-      <input id="weight" placeholder="25" {...register("weight", {required: true})} />
-      {errors.name && <span>Your dog's weight is required so caretakers can dose her with medicine</span>}
-      <input type="submit" />
-    </form>
+      <h1 className="bg-red-400">{user?.signInDetails?.loginId}'s Dogs</h1>
+      <form onSubmit={handleSubmit(onSubmit)} className="bg-slate p-5">
+        <label htmlFor="name">Name</label>
+        <input id="name" placeholder="Fido" {...register("name", { required: true })} />
+        {errors.name && <span>Your dog's name is required</span>}
+        <label htmlFor="description">Description</label>
+        <input id="description" placeholder="A bubbly, bouncy boy" {...register("description")} />
+        <label htmlFor="description">Weight (lbs)</label>
+        <input id="weight" placeholder="25" {...register("weight", {required: true})} />
+        {errors.name && <span>Your dog's weight is required so caretakers can dose her with medicine</span>}
+        <input type="submit" />
+      </form>
       <ul>
         {dogs.map((dog) => (
           <li onClick={() => deleteDog(dog.id)} key={dog.id}>{dog.name} ({dog.description}), {dog.weight} (lbs)</li>
