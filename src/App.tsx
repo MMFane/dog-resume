@@ -13,7 +13,7 @@ type Inputs = {
 const client = generateClient<Schema>();
 
 function App() {
-  const { user, signOut } = useAuthenticator();
+  const { signOut } = useAuthenticator();
   const [dogs, setDogs] = useState<Array<Schema["Dog"]["type"]>>([]);
 
   const {
@@ -42,24 +42,33 @@ function App() {
   console.log(dogs)
 
   return (
-    <main>
-      <h1 className="bg-red-400">{user?.signInDetails?.loginId}'s Dogs</h1>
-      <form onSubmit={handleSubmit(onSubmit)} className="bg-slate p-5">
-        <label htmlFor="name">Name</label>
-        <input id="name" placeholder="Fido" {...register("name", { required: true })} />
-        {errors.name && <span>Your dog's name is required</span>}
-        <label htmlFor="description">Description</label>
-        <input id="description" placeholder="A bubbly, bouncy boy" {...register("description")} />
-        <label htmlFor="description">Weight (lbs)</label>
-        <input id="weight" placeholder="25" {...register("weight", {required: true})} />
-        {errors.name && <span>Your dog's weight is required so caretakers can dose her with medicine</span>}
-        <input type="submit" />
-      </form>
-      <ul>
-        {dogs.map((dog) => (
-          <li onClick={() => deleteDog(dog.id)} key={dog.id}>{dog.name} ({dog.description}), {dog.weight} (lbs)</li>
-        ))}
-      </ul>
+    <main className="container min-w-full">
+      <div className="container min-w-full flex flex-col items-center">
+        <h1 className="text-3xl font-bold">Add a Dog</h1>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
+          <h2 className="font-semibold"></h2>
+          <div className="pt-4 flex flex-col">
+            <label htmlFor="name">Name</label>
+            <input className="p-1" id="name" placeholder="Fido" {...register("name", { required: true })} />
+            {errors.name && <span>Your dog's name is required</span>}
+          </div>
+          <div className="pt-4 flex flex-col">
+            <label htmlFor="description">Description</label>
+            <input className="p-1" id="description" placeholder="A bubbly, bouncy boy" {...register("description")} />
+          </div>
+          <div className="pt-4 flex flex-col">
+            <label htmlFor="description">Weight (lbs)</label>
+            <input className="p-1" id="weight" placeholder="25" {...register("weight", {required: true})} />
+            {errors.name && <span>Your dog's weight is required so caretakers can dose her with medicine</span>}
+          </div>
+          <input type="submit" />
+        </form>
+        <ul>
+          {dogs.map((dog) => (
+            <li onClick={() => deleteDog(dog.id)} key={dog.id}>{dog.name} ({dog.description}), {dog.weight} (lbs)</li>
+          ))}
+        </ul>
+      </div>
       <button onClick={signOut}>Sign out</button>
     </main>
   );
