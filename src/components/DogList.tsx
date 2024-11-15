@@ -20,7 +20,7 @@ function DogList() {
   return (
     <ul className="flex w-full flex-wrap">
       {dogs.map(dog => (
-        <DogCard dog={dog} deleteDog={deleteDog} />
+        <DogCard dog={dog} deleteDog={deleteDog} key={dog.id} />
       ))}
     </ul>
   );
