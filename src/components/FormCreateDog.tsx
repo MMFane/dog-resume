@@ -5,9 +5,10 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDog, faWarning } from '@fortawesome/free-solid-svg-icons';
+import { faDog } from '@fortawesome/free-solid-svg-icons';
+import FormQuestion from './FormQuestion';
 
-type Inputs = {
+export type Inputs = {
   name: string;
   description: string;
   weight: number;
@@ -42,64 +43,42 @@ function FormCreateDog() {
         Add a Dog <FontAwesomeIcon icon={faDog} />
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="flex w-96 flex-col">
-        <div className="flex flex-col pt-4">
-          <label htmlFor="name">Name</label>
-          <input
-            className="rounded-md border border-amber-600 p-1"
-            id="name"
-            placeholder="Fido"
-            {...register('name', { required: true })}
-          />
-          {errors.name && (
-            <span className="max-w-96 text-red-600">
-              <FontAwesomeIcon icon={faWarning} className="mr-1" />
-              Your dog's name is required. How else will we call them?
-            </span>
-          )}
-        </div>
-        <div className="flex flex-col pt-4">
-          <label htmlFor="description">
-            Description <span className="text-amber-600">(optional)</span>
-          </label>
-          <input
-            className="rounded-md border border-amber-600 p-1"
-            id="description"
-            placeholder="A bubbly, bouncy boy"
-            {...register('description')}
-          />
-        </div>
-        <div className="flex flex-col pt-4">
-          <label htmlFor="weight">Weight (lbs)</label>
-          <input
-            className="rounded-md border border-amber-600 p-1"
-            id="weight"
-            placeholder="25"
-            {...register('weight', { required: true })}
-          />
-          {errors.name && (
-            <span className="max-w-96 text-red-600">
-              <FontAwesomeIcon icon={faWarning} className="mr-1" />
-              Your dog's weight is required so caretakers can dose her with
-              medicine
-            </span>
-          )}
-        </div>
-        <div className="flex flex-col pt-4">
-          <label htmlFor="breed">Breed</label>
-          <input
-            className="rounded-md border border-amber-600 p-1"
-            id="breed"
-            placeholder="Golden Retriever"
-            {...register('breed', { required: true })}
-          />
-          {errors.name && (
-            <span className="max-w-96 text-red-600">
-              <FontAwesomeIcon icon={faWarning} className="mr-1" />
-              Your dog's breed is required so caretakers can deal with breed
-              restrictions
-            </span>
-          )}
-        </div>
+        <FormQuestion
+          title="Name"
+          id="name"
+          placeholder="Fido"
+          register={register}
+          errors={errors}
+          required
+          errorText="Your dog's name is required. How else will we call them?"
+        />
+        <FormQuestion
+          title="Description"
+          id="description"
+          placeholder="A bubbly, bouncy boy"
+          register={register}
+          errors={errors}
+        />
+        <FormQuestion
+          title="Weight (lbs)"
+          id="weight"
+          placeholder="100"
+          register={register}
+          errors={errors}
+          required
+          errorText="Your dog's weight is required so caretakers can dose her with
+              medicine"
+        />
+        <FormQuestion
+          title="Breed"
+          id="breed"
+          placeholder="Golden Retriever"
+          register={register}
+          errors={errors}
+          required
+          errorText=" Your dog's breed is required so caretakers can deal with breed
+              restrictions"
+        />
         <input
           type="submit"
           className="mt-4 rounded-md bg-amber-700 p-3 text-white"
