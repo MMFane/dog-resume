@@ -20,9 +20,8 @@ function DogCard(props: DogCardProps) {
           src={profileImg}
         />
         <div className="w-full">
-          <div className="align-center flex justify-between rounded-md p-2">
+          <div className="align-center flex justify-between rounded-tr-md border-b border-amber-200 p-2">
             <h3 className="p-1 font-bold">{props.dog.name}</h3>
-
             <button
               className="rounded px-3 py-1 text-amber-700 hover:bg-amber-300 hover:text-amber-900 active:bg-amber-500 active:text-amber-900"
               onClick={() => props.deleteDog(props.dog.id)}
