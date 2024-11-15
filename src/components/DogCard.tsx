@@ -1,5 +1,7 @@
 import type { Schema } from '../../amplify/data/resource';
 import profileImg from '../assets/profile-default.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 
 interface DogCardProps {
   dog: Schema['Dog']['type'];
@@ -19,12 +21,13 @@ function DogCard(props: DogCardProps) {
         />
         <div className="w-full">
           <div className="align-center flex justify-between rounded-md p-2">
-            <h3 className="p-1 font-bold">{props.dog.name}</h3>{' '}
+            <h3 className="p-1 font-bold">{props.dog.name}</h3>
+
             <button
-              className="rounded px-2 py-1 text-amber-700 hover:bg-amber-300 hover:text-amber-900 active:bg-amber-500 active:text-amber-900"
+              className="rounded px-3 py-1 text-amber-700 hover:bg-amber-300 hover:text-amber-900 active:bg-amber-500 active:text-amber-900"
               onClick={() => props.deleteDog(props.dog.id)}
             >
-              Delete
+              <FontAwesomeIcon icon={faX} />
             </button>
           </div>
           <div className="rounded-md p-2">

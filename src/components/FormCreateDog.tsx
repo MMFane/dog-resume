@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDog } from '@fortawesome/free-solid-svg-icons';
 
 type Inputs = {
   name: string;
@@ -35,9 +37,10 @@ function FormCreateDog() {
 
   return (
     <div className="container flex min-w-full flex-col items-center p-4">
-      <h1 className="text-3xl font-bold text-amber-900">Add a Dog</h1>
+      <h1 className="text-3xl font-bold text-amber-900">
+        Add a Dog <FontAwesomeIcon icon={faDog} />
+      </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-        <h2 className="font-semibold"></h2>
         <div className="flex flex-col pt-4">
           <label htmlFor="name">Name</label>
           <input
