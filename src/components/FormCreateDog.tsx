@@ -15,9 +15,11 @@ function FormCreateDog() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = data => {
     createDog(data);
+    reset();
   };
 
   function createDog(data: Inputs) {
