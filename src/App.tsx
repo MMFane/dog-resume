@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useAuthenticator } from '@aws-amplify/ui-react';
 import type { Schema } from '../amplify/data/resource';
 import { generateClient } from 'aws-amplify/data';
@@ -14,7 +13,6 @@ const client = generateClient<Schema>();
 
 function App() {
   const { signOut } = useAuthenticator();
-  const [dogs, setDogs] = useState<Array<Schema['Dog']['type']>>([]);
 
   const {
     register,
@@ -25,23 +23,14 @@ function App() {
     createDog(data);
   };
 
-  useEffect(() => {
-    client.models.Dog.observeQuery().subscribe({
-      next: data => setDogs([...data.items]),
-    });
-  }, []);
-
   function createDog(data: Inputs) {
     client.models.Dog.create(data);
   }
 
-  function deleteDog(id: string) {
-    client.models.Dog.delete({ id });
-  }
-
   return (
     <main className="min-h-full w-full bg-amber-50">
-      <div className="sticky top-0 flex w-full justify-end bg-amber-400 p-1">
+      <div className="sticky top-0 flex w-full items-center justify-between bg-amber-400 p-2">
+        <a href={`/dogs`}>Your Dogs</a>
         <button
           className="rounded-md bg-amber-700 p-3 text-white"
           onClick={signOut}
@@ -92,13 +81,6 @@ function App() {
             className="mt-4 rounded-md bg-amber-700 p-3 text-white"
           />
         </form>
-        <ul>
-          {dogs.map(dog => (
-            <li onClick={() => deleteDog(dog.id)} key={dog.id}>
-              {dog.name} ({dog.description}), {dog.weight} (lbs)
-            </li>
-          ))}
-        </ul>
       </div>
     </main>
   );
