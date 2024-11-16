@@ -12,9 +12,8 @@ const schema = a.schema({
       name: a.string(),
       description: a.string(),
       weight: a.integer(),
-      breed: a.string(), // can we limit to some list of breeds?
-      // birthdate: // what date type is available here?
-      // colors: // can we do an enum of allowed colors?
+      breed: a.string(),
+      birthdate: a.date(),
     })
     .authorization(allow => [allow.owner()]),
 });

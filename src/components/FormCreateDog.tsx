@@ -13,6 +13,7 @@ export type Inputs = {
   description: string;
   weight: number;
   breed: string;
+  birthdate: string;
 };
 
 const client = generateClient<Schema>();
@@ -78,6 +79,14 @@ function FormCreateDog() {
           required
           errorText=" Your dog's breed is required so caretakers can deal with breed
               restrictions"
+        />
+        <FormQuestion
+          title="Birthday"
+          id="birthdate"
+          placeholder="01/01/2024"
+          register={register}
+          errors={errors}
+          errorText="Your dog's birthday is required so caretakers can plan age-appropriate fun for your dog"
         />
         <input
           type="submit"
