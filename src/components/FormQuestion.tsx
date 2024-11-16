@@ -11,6 +11,7 @@ interface FormQuestionProps {
   errors: FieldErrors<Inputs>;
   required?: boolean;
   errorText?: string;
+  type?: 'text' | 'number' | 'date';
 }
 
 function FormQuestion({
@@ -21,11 +22,13 @@ function FormQuestion({
   errors,
   required = false,
   errorText,
+  type = 'text',
 }: FormQuestionProps) {
   return (
     <div className="flex flex-col pt-4">
       <label htmlFor={id}>{title}</label>
       <input
+        type={type}
         className="rounded-md border border-amber-600 p-1"
         id={id}
         placeholder={placeholder}

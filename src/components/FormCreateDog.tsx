@@ -63,6 +63,7 @@ function FormCreateDog() {
         <FormQuestion
           title="Weight (lbs)"
           id="weight"
+          type="number"
           placeholder="100"
           register={register}
           errors={errors}
@@ -83,6 +84,7 @@ function FormCreateDog() {
         <FormQuestion
           title="Birthday"
           id="birthdate"
+          type="date"
           placeholder="01/01/2024"
           register={register}
           errors={errors}
