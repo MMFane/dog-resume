@@ -38,7 +38,7 @@ function FormQuestion({
       </label>
       <input
         type={type}
-        className="rounded-md border border-amber-600 p-1 dark:border-slate-500 dark:bg-slate-700 dark:text-amber-50"
+        className="rounded-md border border-amber-600 p-1 dark:border-neutral-500 dark:bg-neutral-700 dark:text-amber-50"
         id={id}
         placeholder={placeholder}
         {...register(id, {
@@ -49,7 +49,7 @@ function FormQuestion({
         })}
       />
       {errors[id] && (
-        <span className="max-w-96 text-red-600 dark:text-red-500">
+        <span className="max-w-96 text-red-600 dark:text-red-800">
           <FontAwesomeIcon icon={faWarning} className="mr-1" />
           {errorText}
         </span>

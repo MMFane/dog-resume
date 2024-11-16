@@ -38,29 +38,30 @@ function App() {
   }
 
   return (
-    <main className="min-h-full w-full bg-amber-50 dark:bg-slate-800">
-      <div className="sticky top-0 flex w-full items-center justify-between bg-amber-400 p-2 dark:bg-slate-900">
+    <main className="min-h-full w-full bg-amber-50 dark:bg-neutral-800">
+      <div className="sticky top-0 flex w-full items-center justify-between bg-amber-400 p-2 dark:bg-neutral-600">
         <div>
           <NavLink linkText="Add Dog" route="/add-dog" />
           <NavLink linkText="Your Dogs" route="/dogs" />
         </div>
         <div className="flex items-center">
-          <ToggleButtonGroup
-            className="mr-4"
-            value={themeMode}
-            exclusive
-            onChange={toggleThemeMode}
-            aria-label="theme mode"
-          >
-            <ToggleButton value="light" aria-label="light mode">
-              <FontAwesomeIcon icon={faSun} />
-            </ToggleButton>
-            <ToggleButton value="dark" aria-label="dark mode">
-              <FontAwesomeIcon icon={faMoon} />
-            </ToggleButton>
-          </ToggleButtonGroup>
+          <div className="mr-4 dark:bg-neutral-500">
+            <ToggleButtonGroup
+              value={themeMode}
+              exclusive
+              onChange={toggleThemeMode}
+              aria-label="theme mode"
+            >
+              <ToggleButton value="dark" aria-label="dark mode">
+                <FontAwesomeIcon icon={faSun} />
+              </ToggleButton>
+              <ToggleButton value="light" aria-label="light mode">
+                <FontAwesomeIcon icon={faMoon} />
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </div>
           <button
-            className="rounded-md bg-amber-700 p-3 text-white hover:bg-amber-800 active:bg-amber-900 dark:border dark:border-black dark:bg-slate-800 dark:text-amber-100 dark:hover:bg-slate-950 dark:active:bg-black dark:active:text-amber-200"
+            className="rounded-md bg-amber-700 p-3 text-white hover:bg-amber-800 active:bg-amber-900 dark:border dark:border-black dark:bg-neutral-800 dark:text-amber-100 dark:hover:bg-neutral-950 dark:active:bg-black dark:active:text-amber-200"
             onClick={signOut}
           >
             Sign out
