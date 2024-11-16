@@ -19,22 +19,25 @@ function DogList() {
   }
 
   return (
-    <ul className="flex w-full flex-wrap">
-      {dogs.length === 0 && (
-        <p className="w-full text-center">
-          No dogs yet.{' '}
-          <Link
-            to="/add-dog"
-            className="text-amber-700 hover:text-amber-900 active:text-amber-500"
-          >
-            Add one!
-          </Link>
-        </p>
-      )}
-      {dogs.map(dog => (
-        <DogCard dog={dog} deleteDog={deleteDog} key={dog.id} />
-      ))}
-    </ul>
+    <div className="flex flex-col items-center">
+      <h1 className="mb-4 text-3xl font-bold">Your Dogs</h1>
+      <ul className="flex w-full flex-wrap">
+        {dogs.length === 0 && (
+          <p className="w-full text-center">
+            No dogs yet.{' '}
+            <Link
+              to="/add-dog"
+              className="text-amber-700 hover:text-amber-900 active:text-amber-500"
+            >
+              Add one!
+            </Link>
+          </p>
+        )}
+        {dogs.map(dog => (
+          <DogCard dog={dog} deleteDog={deleteDog} key={dog.id} />
+        ))}
+      </ul>
+    </div>
   );
 }
 

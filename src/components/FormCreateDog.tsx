@@ -93,6 +93,7 @@ function FormCreateDog() {
         />
         <input
           type="submit"
+          aria-label="submit"
           className="mt-4 rounded-md bg-amber-700 p-3 text-white"
         />
       </form>

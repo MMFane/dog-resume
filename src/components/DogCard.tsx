@@ -33,12 +33,14 @@ function DogCard({ dog, deleteDog }: DogCardProps) {
       <div className="flex">
         <img
           className="max-h-40 rounded-l-md border-r border-amber-200 bg-amber-100"
+          alt="" // only adds meaning to sighted folks
           src={profileImg}
         />
         <div className="w-full">
           <div className="align-center flex justify-between rounded-tr-md border-b border-amber-200 p-2">
-            <h3 className="p-1 font-bold">{dog.name}</h3>
+            <h2 className="p-1 font-bold">{dog.name}</h2>
             <button
+              aria-label={`Delete ${dog.name}`}
               className="rounded px-3 py-1 text-amber-700 hover:bg-amber-300 hover:text-amber-900 active:bg-amber-500 active:text-amber-900"
               onClick={() => deleteDog(dog.id)}
             >
