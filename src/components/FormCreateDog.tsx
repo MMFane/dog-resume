@@ -40,7 +40,7 @@ function FormCreateDog() {
 
   return (
     <div className="flex flex-col items-center p-4">
-      <h1 className="text-3xl font-bold text-amber-800 dark:text-amber-300">
+      <h1 className="text-3xl font-bold text-amber-800 dark:text-amber-300 dark:opacity-85">
         Add a Dog <FontAwesomeIcon icon={faDog} />
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="flex w-96 flex-col">

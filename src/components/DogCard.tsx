@@ -48,7 +48,7 @@ function DogCard({ dog, deleteDog }: DogCardProps) {
             </button>
           </div>
           <div className="rounded-md p-2 text-amber-900 dark:text-amber-200">
-            <p className="italic text-amber-700 dark:text-amber-400 dark:opacity-75">
+            <p className="dark: italic text-amber-700 dark:text-amber-300">
               {dog.description}
             </p>
             <p>{dog.breed}</p>
