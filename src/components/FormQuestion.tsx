@@ -33,10 +33,12 @@ function FormQuestion({
 }: FormQuestionProps) {
   return (
     <div className="flex flex-col pt-4">
-      <label htmlFor={id}>{title}</label>
+      <label className="dark:text-amber-200" htmlFor={id}>
+        {title}
+      </label>
       <input
         type={type}
-        className="rounded-md border border-amber-600 p-1"
+        className="rounded-md border border-amber-600 p-1 dark:border-slate-500 dark:bg-slate-700 dark:text-amber-50"
         id={id}
         placeholder={placeholder}
         {...register(id, {
@@ -47,7 +49,7 @@ function FormQuestion({
         })}
       />
       {errors[id] && (
-        <span className="max-w-96 text-red-600">
+        <span className="max-w-96 text-red-600 dark:text-red-500">
           <FontAwesomeIcon icon={faWarning} className="mr-1" />
           {errorText}
         </span>

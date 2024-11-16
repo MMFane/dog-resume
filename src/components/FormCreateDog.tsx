@@ -40,7 +40,7 @@ function FormCreateDog() {
 
   return (
     <div className="flex flex-col items-center p-4">
-      <h1 className="text-3xl font-bold text-amber-900">
+      <h1 className="text-3xl font-bold text-amber-900 dark:text-amber-300">
         Add a Dog <FontAwesomeIcon icon={faDog} />
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="flex w-96 flex-col">
@@ -94,7 +94,7 @@ function FormCreateDog() {
         <input
           type="submit"
           aria-label="submit"
-          className="mt-4 rounded-md bg-amber-700 p-3 text-white"
+          className="mt-4 rounded-md bg-amber-700 p-3 text-white hover:bg-amber-600 active:bg-amber-800 dark:bg-amber-800 dark:hover:bg-amber-700 dark:active:bg-amber-900"
         />
       </form>
       <ToastContainer />

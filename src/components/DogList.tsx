@@ -20,7 +20,7 @@ function DogList() {
 
   return (
     <div className="flex flex-col items-center">
-      <h1 className="mb-4 text-3xl font-bold">Your Dogs</h1>
+      <h1 className="mb-4 text-3xl font-bold dark:text-amber-300">Your Dogs</h1>
       <ul className="flex w-full flex-wrap">
         {dogs.length === 0 && (
           <p className="w-full text-center">
