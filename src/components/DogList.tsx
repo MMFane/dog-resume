@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { Schema } from '../../amplify/data/resource';
 import { generateClient } from 'aws-amplify/data';
+import { Link } from 'react-router-dom';
 import DogCard from './DogCard';
 const client = generateClient<Schema>();
 
@@ -19,6 +20,17 @@ function DogList() {
 
   return (
     <ul className="flex w-full flex-wrap">
+      {dogs.length === 0 && (
+        <p className="w-full text-center">
+          No dogs yet.{' '}
+          <Link
+            to="/add-dog"
+            className="text-amber-700 hover:text-amber-900 active:text-amber-500"
+          >
+            Add one!
+          </Link>
+        </p>
+      )}
       {dogs.map(dog => (
         <DogCard dog={dog} deleteDog={deleteDog} key={dog.id} />
       ))}
