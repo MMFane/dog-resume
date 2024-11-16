@@ -50,8 +50,8 @@ function FormCreateDog() {
           placeholder="Fido"
           register={register}
           errors={errors}
-          required
           errorText="Your dog's name is required. How else will we call them?"
+          validation={{ required: true }}
         />
         <FormQuestion
           title="Description"
@@ -67,9 +67,9 @@ function FormCreateDog() {
           placeholder="100"
           register={register}
           errors={errors}
-          required
-          errorText="Your dog's weight is required so caretakers can dose her with
+          errorText="Min: 1, Max: 350. Your dog's weight is required so caretakers can dose her with
               medicine"
+          validation={{ required: true, valueAsNumber: true, min: 1, max: 350 }}
         />
         <FormQuestion
           title="Breed"
@@ -77,9 +77,9 @@ function FormCreateDog() {
           placeholder="Golden Retriever"
           register={register}
           errors={errors}
-          required
-          errorText=" Your dog's breed is required so caretakers can deal with breed
-              restrictions"
+          errorText="Your dog's breed is required so caretakers can deal with breed
+          restrictions"
+          validation={{ required: true }}
         />
         <FormQuestion
           title="Birthday"
@@ -89,6 +89,7 @@ function FormCreateDog() {
           register={register}
           errors={errors}
           errorText="Your dog's birthday is required so caretakers can plan age-appropriate fun for your dog"
+          validation={{ required: true }}
         />
         <input
           type="submit"
