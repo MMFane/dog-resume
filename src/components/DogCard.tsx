@@ -32,7 +32,7 @@ function DogCard({ dog, deleteDog }: DogCardProps) {
     >
       <div className="flex">
         <img
-          className="h-32 max-w-32 rounded-l-md border-b border-r border-amber-200 bg-amber-100"
+          className="max-h-40 rounded-l-md border-r border-amber-200 bg-amber-100"
           src={profileImg}
         />
         <div className="w-full">
