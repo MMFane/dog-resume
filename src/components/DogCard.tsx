@@ -2,6 +2,7 @@ import type { Schema } from '../../amplify/data/resource';
 import profileImg from '../assets/profile-default.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 interface DogCardProps {
   dog: Schema['Dog']['type'];
@@ -38,7 +39,9 @@ function DogCard({ dog, deleteDog }: DogCardProps) {
         />
         <div className="w-full">
           <div className="align-center flex justify-between rounded-tr-md border-b border-amber-200 p-2 dark:border-neutral-800">
-            <h2 className="p-1 font-bold dark:text-amber-100">{dog.name}</h2>
+            <Link to={`/dogs/${dog.id}`}>
+              <h2 className="p-1 font-bold dark:text-amber-100">{dog.name}</h2>
+            </Link>
             <button
               aria-label={`Delete ${dog.name}`}
               className="rounded px-3 py-1 text-amber-700 hover:bg-amber-300 hover:text-amber-900 active:bg-amber-500 active:text-amber-900 dark:text-amber-600 dark:hover:bg-neutral-500 dark:hover:text-amber-300 dark:active:bg-neutral-800 dark:active:text-neutral-900"

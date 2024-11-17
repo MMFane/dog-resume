@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
 import DogList from './components/DogList.tsx';
+import DogDetail from './components/DogDetail.tsx';
 import ErrorPage from './components/ErrorPage.tsx';
 import './index.css';
 import { Authenticator } from '@aws-amplify/ui-react';
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/dogs',
         element: <DogList />,
+      },
+      {
+        path: '/dogs/:dogId',
+        element: <DogDetail />,
       },
     ],
   },
