@@ -3,24 +3,11 @@ import profileImg from '../assets/profile-default.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import { calculateAge } from '../utils/age-utils';
 
 interface DogCardProps {
   dog: Dog;
   deleteDog: (id: string) => void;
-}
-
-function calculateAge(birthday: string) {
-  const birthdate = new Date(birthday);
-  const today = new Date();
-  let age = today.getFullYear() - birthdate.getFullYear();
-  const monthDiff = today.getMonth() - birthdate.getMonth();
-  if (
-    monthDiff < 0 ||
-    (monthDiff === 0 && today.getDate() < birthdate.getDate())
-  ) {
-    age--;
-  }
-  return age;
 }
 
 function DogCard({ dog, deleteDog }: DogCardProps) {
