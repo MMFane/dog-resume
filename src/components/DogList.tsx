@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import type { Schema } from '../../amplify/data/resource';
+import type { Dog } from '../types/types';
 import { generateClient } from 'aws-amplify/data';
 import { Link } from 'react-router-dom';
 import DogCard from './DogCard';
 const client = generateClient<Schema>();
 
 function DogList() {
-  const [dogs, setDogs] = useState<Array<Schema['Dog']['type']>>([]);
+  const [dogs, setDogs] = useState<Array<Dog>>([]);
 
   useEffect(() => {
     client.models.Dog.observeQuery().subscribe({
