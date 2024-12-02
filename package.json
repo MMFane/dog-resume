@@ -1,5 +1,5 @@
 {
-  "name": "amplify-vite-react-template",
+  "name": "dog-resume",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -36,8 +36,8 @@
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.20",
-    "aws-cdk": "^2.138.0",
-    "aws-cdk-lib": "^2.138.0",
+    "aws-cdk": "^2.149.0",
+    "aws-cdk-lib": "^2.149.0",
     "constructs": "^10.3.0",
     "esbuild": "^0.20.2",
     "eslint": "^8.57.0",
