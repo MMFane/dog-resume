@@ -37,10 +37,10 @@ function DogDetail() {
       {!dog && <div>Details for dog not found</div>}
       {dog && (
         <>
-          <h1 className="mb-4 bg-amber-200 p-2 text-3xl font-bold text-amber-800 dark:text-amber-300 dark:opacity-85">
+          <h1 className="mb-4 bg-amber-200 p-2 text-3xl font-bold text-amber-800 dark:bg-neutral-600 dark:text-amber-300 dark:opacity-85">
             {dog.name}
           </h1>
-          <div className="mb-4 flex w-full justify-between bg-amber-100 p-4">
+          <div className="mb-4 flex w-full justify-between bg-amber-100 p-4 dark:bg-neutral-700">
             <div className="mr-8 w-6/12 max-w-80">
               <h2 className="mb-4 text-2xl font-bold text-amber-800 dark:text-amber-300 dark:opacity-85">
                 Details
@@ -78,17 +78,17 @@ function DogDetail() {
               src={profileImg}
             />
           </div>
-          <div className="mb-4 flex w-full justify-between bg-amber-100 p-4">
+          <div className="mb-4 flex w-full justify-between bg-amber-100 p-4 dark:bg-neutral-700">
             <h2 className="mb-4 text-2xl font-bold text-amber-800 dark:text-amber-300 dark:opacity-85">
               Health Information
             </h2>
           </div>
-          <div className="mb-4 flex w-full justify-between bg-amber-100 p-4">
+          <div className="mb-4 flex w-full justify-between bg-amber-100 p-4 dark:bg-neutral-700">
             <h2 className="mb-4 text-2xl font-bold text-amber-800 dark:text-amber-300 dark:opacity-85">
               Emergency Contacts
             </h2>
           </div>
-          <div className="mb-4 flex w-full justify-between bg-amber-100 p-4">
+          <div className="mb-4 flex w-full justify-between bg-amber-100 p-4 dark:bg-neutral-700">
             <h2 className="mb-4 text-2xl font-bold text-amber-800 dark:text-amber-300 dark:opacity-85">
               Trick Library
             </h2>
