@@ -1,4 +1,4 @@
-import type { Schema } from '../../amplify/data/resource';
+import type { Schema } from '../../../../amplify/data/resource';
 import { generateClient } from 'aws-amplify/data';
 import { Link } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDog } from '@fortawesome/free-solid-svg-icons';
-import FormQuestion from './FormQuestion';
+import FormQuestion from '../../../components/FormQuestion';
 
 export type Inputs = {
   name: string;

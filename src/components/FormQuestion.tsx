@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWarning } from '@fortawesome/free-solid-svg-icons';
 import { UseFormRegister, FieldErrors } from 'react-hook-form';
-import { Inputs } from './FormCreateDog';
+import type { Inputs } from '../App/Features/Dogs/FormCreateDog';
 
 interface ValidationOptions {
   required?: boolean;

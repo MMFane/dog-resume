@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import type { Schema } from '../../amplify/data/resource';
-import type { Dog } from '../types/types';
+import type { Schema } from '../../../../amplify/data/resource';
+import type { Dog } from '../../../types/types';
 import { generateClient } from 'aws-amplify/data';
 import { Link } from 'react-router-dom';
 import DogCard from './DogCard';
