@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useAuthenticator } from '@aws-amplify/ui-react';
-import NavLink from './components/NavLink';
+import NavLink from './App/components/NavLink';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
