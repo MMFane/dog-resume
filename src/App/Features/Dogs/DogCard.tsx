@@ -1,9 +1,9 @@
 import type { Dog } from '../../../types/types';
-import profileImg from '../../assets/profile-default.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { calculateAge } from '../../../utils/age-utils';
+import ProfileImg from './ProfileImg';
 
 interface DogCardProps {
   dog: Dog;
@@ -19,11 +19,7 @@ function DogCard({ dog, deleteDog }: DogCardProps) {
       key={dog.id}
     >
       <div className="flex">
-        <img
-          className="max-h-40 rounded-l-md border-r border-amber-200 bg-amber-100 opacity-75 dark:border-neutral-800 dark:bg-neutral-600"
-          alt="" // only adds meaning to sighted folks
-          src={profileImg}
-        />
+        <ProfileImg height="40" additionalStyling="border-r" />
         <div className="w-full">
           <div className="align-center flex justify-between rounded-tr-md border-b border-amber-200 p-2 dark:border-neutral-800">
             <Link to={`/dogs/${dog.id}`}>
