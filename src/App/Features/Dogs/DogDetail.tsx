@@ -4,7 +4,7 @@ import type { Schema } from '../../../../amplify/data/resource';
 import type { Dog } from '../../../types/types';
 import { useParams } from 'react-router-dom';
 import { calculateAge } from '../../../utils/age-utils';
-import profileImg from '../../../assets/profile-default.png';
+import profileImg from '../../assets/profile-default.png';
 
 function DogDetail() {
   const client = generateClient<Schema>();

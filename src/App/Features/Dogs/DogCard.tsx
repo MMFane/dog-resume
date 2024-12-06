@@ -1,5 +1,5 @@
 import type { Dog } from '../../../types/types';
-import profileImg from '../../../assets/profile-default.png';
+import profileImg from '../../assets/profile-default.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';

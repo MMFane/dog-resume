@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDog } from '@fortawesome/free-solid-svg-icons';
-import FormQuestion from '../../../components/FormQuestion';
+import FormQuestion from '../../components/FormQuestion';
 
 export type Inputs = {
   name: string;
