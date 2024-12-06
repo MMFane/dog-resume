@@ -37,31 +37,29 @@ function DogDetail() {
     <div className="mb-4 flex w-full justify-between bg-amber-100 dark:bg-neutral-700">
       <div className="mr-8 w-6/12 max-w-80">
         <ul>
-          {dog?.description ?? (
-            <li className="pb-2">
-              <h3 className="pr-2 text-xl font-bold text-amber-800 dark:text-amber-300 dark:opacity-85">
-                Description
-              </h3>
-              <p>{dog.description}</p>
-            </li>
-          )}
+          <li className="pb-2">
+            <h3 className="pr-2 text-xl font-bold text-amber-800 dark:text-amber-300 dark:opacity-85">
+              Description
+            </h3>
+            {dog.description ? <p>{dog.description}</p> : <p>---</p>}
+          </li>
           <li className="pb-2">
             <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 dark:opacity-85">
               Age
             </h3>
-            {dogAge} years old (born {dog!.birthdate})
+            {dogAge} years old (born {dog.birthdate})
           </li>
           <li className="pb-2">
             <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 dark:opacity-85">
               Weight
             </h3>
-            {dog!.weight} lbs
+            {dog.weight} lbs
           </li>
           <li className="pb-2">
             <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 dark:opacity-85">
               Breed
             </h3>
-            {dog!.breed}
+            {dog.breed}
           </li>
         </ul>
       </div>
@@ -76,7 +74,7 @@ function DogDetail() {
       )}
       {dog && (
         <>
-          <h1 className="mb-4 bg-amber-200 p-2 text-3xl font-bold text-amber-800 dark:bg-neutral-600 dark:text-amber-300 dark:opacity-85">
+          <h1 className="mb-4 p-2 text-3xl font-bold text-amber-800 dark:text-amber-100 dark:opacity-85">
             {dog.name}
           </h1>
           <DetailSection title="Details" content={DogDetails(dog)} />
