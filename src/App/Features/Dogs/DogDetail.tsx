@@ -4,15 +4,23 @@ import { useParams } from 'react-router-dom';
 import { calculateAge } from '../../../utils/age-utils';
 import DetailSection from '../../components/DetailSection';
 import ProfileImg from './ProfileImg';
-import { useAppSelector } from '../../hooks';
-import { selectDogById, selectDogsStatus } from './dogsSlice';
+import Button from '../../components/Button';
+import { useAppSelector, useAppDispatch } from '../../hooks';
+import { selectDogById, selectDogsStatus, deleteDog } from './dogsSlice';
+import DeleteForm from '../../components/DeleteForm';
 
 function DogDetail() {
   const { dogId } = useParams();
 
+  const dispatch = useAppDispatch();
   const dog = useAppSelector(state => selectDogById(state, dogId!));
   const dogsStatus = useAppSelector(selectDogsStatus);
   const [dogAge, setDogAge] = useState<number>(99);
+  const [showDeleteForm, setShowDeleteForm] = useState(false);
+
+  const deleteDogById = () => {
+    dispatch(deleteDog(dogId!));
+  };
 
   useEffect(() => {
     setDogAge(dog ? calculateAge(dog.birthdate!) : 99);
@@ -59,6 +67,12 @@ function DogDetail() {
       )}
       {dog && (
         <>
+          <DeleteForm
+            deleteHandler={deleteDogById}
+            isOpen={showDeleteForm}
+            resourceType="Dog"
+            resourceName={dog.name!}
+          />
           <h1 className="mb-4 p-2 text-3xl font-bold text-amber-800 dark:text-amber-100 dark:opacity-85">
             {dog.name}
           </h1>
@@ -72,6 +86,15 @@ function DogDetail() {
             content={<p>Coming soon</p>}
           />
           <DetailSection title="Trick Libray" content={<p>Coming soon</p>} />
+          <DetailSection
+            title="Delete Dog"
+            content={
+              <Button
+                text="Delete Dog"
+                onClick={() => setShowDeleteForm(true)}
+              />
+            }
+          />
         </>
       )}
     </div>
