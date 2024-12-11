@@ -66,4 +66,6 @@ const dogsSlice = createSlice({
 export default dogsSlice.reducer;
 export const { dogAdded } = dogsSlice.actions;
 export const selectAllDogs = (state: RootState) => state.dogs.dogs;
+export const selectDogById = (state: RootState, dogId: string) =>
+  state.dogs.dogs.find(dog => dog.id === dogId);
 export const selectDogsStatus = (state: RootState) => state.dogs.status;

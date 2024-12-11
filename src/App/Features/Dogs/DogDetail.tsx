@@ -1,39 +1,24 @@
 import { useEffect, useState } from 'react';
-import { generateClient } from 'aws-amplify/data';
-import type { Schema } from '../../../../amplify/data/resource';
 import type { Dog } from '../../../types/types';
 import { useParams } from 'react-router-dom';
 import { calculateAge } from '../../../utils/age-utils';
 import DetailSection from '../../components/DetailSection';
 import ProfileImg from './ProfileImg';
+import { useAppSelector } from '../../hooks';
+import { selectDogById, selectDogsStatus } from './dogsSlice';
 
 function DogDetail() {
-  const client = generateClient<Schema>();
   const { dogId } = useParams();
 
-  const [dog, setDog] = useState<Dog>();
+  const dog = useAppSelector(state => selectDogById(state, dogId!));
+  const dogsStatus = useAppSelector(selectDogsStatus);
   const [dogAge, setDogAge] = useState<number>(99);
 
-  const getDog = async () => {
-    if (!dogId) {
-      console.log('error!');
-    }
-    const { data: dog, errors } = await client.models.Dog.get({
-      id: dogId as string,
-    });
-    if (dog) {
-      setDog(dog);
-      setDogAge(calculateAge(dog?.birthdate as string));
-    } else {
-      console.error(errors);
-    }
-  };
-
   useEffect(() => {
-    getDog();
-  }, []);
+    setDogAge(dog ? calculateAge(dog.birthdate!) : 99);
+  }, [dog]);
 
-  const DogDetails = (dog: Dog) => (
+  const dogDetails = (dog: Dog) => (
     <div className="mb-4 flex w-full justify-between bg-amber-100 dark:bg-neutral-700">
       <div className="mr-8 w-6/12 max-w-80">
         <ul>
@@ -69,7 +54,7 @@ function DogDetail() {
 
   return (
     <div className="m-auto max-w-2xl">
-      {!dog && (
+      {!dog && dogsStatus === 'idle' && (
         <div className="dark:text-amber-100">Details for dog not found</div>
       )}
       {dog && (
@@ -77,7 +62,7 @@ function DogDetail() {
           <h1 className="mb-4 p-2 text-3xl font-bold text-amber-800 dark:text-amber-100 dark:opacity-85">
             {dog.name}
           </h1>
-          <DetailSection title="Details" content={DogDetails(dog)} />
+          <DetailSection title="Details" content={dogDetails(dog)} />
           <DetailSection
             title="Health Information"
             content={<p>Coming soon</p>}
