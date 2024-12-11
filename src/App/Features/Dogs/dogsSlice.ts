@@ -14,6 +14,11 @@ interface DogsState {
   error: string | null;
 }
 
+type NewDog = Pick<
+  Dog,
+  'name' | 'description' | 'birthdate' | 'weight' | 'breed'
+>;
+
 export const fetchDogs = createAppAsyncThunk(
   'dogs/fetchDogs',
   async () => {
@@ -39,6 +44,14 @@ export const deleteDog = createAppAsyncThunk(
   }
 );
 
+export const addDog = createAppAsyncThunk(
+  'dogs/addDog',
+  async (data: NewDog) => {
+    const response = await client.models.Dog.create(data);
+    return response.data;
+  }
+);
+
 const initialState: DogsState = {
   dogs: [],
   status: 'idle',
@@ -60,19 +73,30 @@ const dogsSlice = createSlice({
       })
       .addCase(fetchDogs.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        // Add any fetched posts to the array
         state.dogs.push(...action.payload);
       })
       .addCase(fetchDogs.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message ?? 'Unknown Error';
       })
-      .addCase(deleteDog.pending, (state, action) => {
+      .addCase(addDog.pending, state => {
+        state.status = 'pending';
+      })
+      .addCase(addDog.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        if (action.payload) {
+          state.dogs.push(action.payload);
+        }
+      })
+      .addCase(addDog.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message ?? 'Unknown Error';
+      })
+      .addCase(deleteDog.pending, state => {
         state.status = 'pending';
       })
       .addCase(deleteDog.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        // Add any fetched posts to the array
         const id = action.payload;
         const existingDogIndex = state.dogs.findIndex(dog => dog.id === id);
         state.dogs.splice(existingDogIndex, 1);

@@ -1,11 +1,11 @@
-import type { Schema } from '../../../../amplify/data/resource';
-import { generateClient } from 'aws-amplify/data';
 import { Link } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
+
+import { useAppDispatch } from '../../hooks';
+import { addDog } from './dogsSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDog } from '@fortawesome/free-solid-svg-icons';
+
 import FormQuestion from '../../components/FormQuestion';
 
 export type Inputs = {
@@ -16,9 +16,8 @@ export type Inputs = {
   birthdate: string;
 };
 
-const client = generateClient<Schema>();
-
 function FormCreateDog() {
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
@@ -26,7 +25,7 @@ function FormCreateDog() {
     reset,
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async data => {
-    await createDog(data);
+    await dispatch(addDog(data));
     notify(data.name);
     reset();
   };
@@ -34,14 +33,10 @@ function FormCreateDog() {
   const notify = (name: string) =>
     toast(<Link to={`/dogs`}>{name} added</Link>);
 
-  async function createDog(data: Inputs) {
-    await client.models.Dog.create(data);
-  }
-
   return (
     <div className="flex flex-col items-center p-4">
       <h1 className="text-3xl font-bold text-amber-800 dark:text-amber-300 dark:opacity-85">
-        Add a Dog <FontAwesomeIcon icon={faDog} />
+        Add a Dog
       </h1>
       <form onSubmit={handleSubmit(onSubmit)} className="flex w-96 flex-col">
         <FormQuestion
@@ -93,7 +88,7 @@ function FormCreateDog() {
         />
         <input
           type="submit"
-          aria-label="submit"
+          aria-label="Create dog"
           className="mt-4 rounded-md bg-amber-700 p-3 text-white hover:bg-amber-600 active:bg-amber-800 dark:bg-amber-800 dark:hover:bg-amber-700 dark:active:bg-amber-900"
         />
       </form>
