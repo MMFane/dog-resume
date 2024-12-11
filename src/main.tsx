@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
+import './App.css';
 import DogList from './App/Features/Dogs/DogList.tsx';
 import DogDetail from './App/Features/Dogs/DogDetail.tsx';
 import ErrorPage from './App/components/ErrorPage.tsx';
