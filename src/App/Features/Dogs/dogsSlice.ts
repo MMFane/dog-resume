@@ -18,7 +18,6 @@ export const fetchDogs = createAppAsyncThunk(
   'dogs/fetchDogs',
   async () => {
     const response = await client.models.Dog.list();
-    console.log('fetching dogs', response);
     return response.data;
   },
   {
@@ -29,6 +28,14 @@ export const fetchDogs = createAppAsyncThunk(
         return false;
       }
     },
+  }
+);
+
+export const deleteDog = createAppAsyncThunk(
+  'dogs/deleteDog',
+  async (id: string) => {
+    await client.models.Dog.delete({ id });
+    return id;
   }
 );
 
@@ -57,6 +64,20 @@ const dogsSlice = createSlice({
         state.dogs.push(...action.payload);
       })
       .addCase(fetchDogs.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message ?? 'Unknown Error';
+      })
+      .addCase(deleteDog.pending, (state, action) => {
+        state.status = 'pending';
+      })
+      .addCase(deleteDog.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        // Add any fetched posts to the array
+        const id = action.payload;
+        const existingDogIndex = state.dogs.findIndex(dog => dog.id === id);
+        state.dogs.splice(existingDogIndex, 1);
+      })
+      .addCase(deleteDog.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message ?? 'Unknown Error';
       });

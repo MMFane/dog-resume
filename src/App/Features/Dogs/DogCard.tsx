@@ -4,14 +4,20 @@ import { faX } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { calculateAge } from '../../../utils/age-utils';
 import ProfileImg from './ProfileImg';
+import { deleteDog } from './dogsSlice';
+import { useAppDispatch } from '../../hooks';
 
 interface DogCardProps {
   dog: Dog;
-  deleteDog: (id: string) => void;
 }
 
-function DogCard({ dog, deleteDog }: DogCardProps) {
+function DogCard({ dog }: DogCardProps) {
+  const dispatch = useAppDispatch();
   const age = calculateAge(dog.birthdate as string);
+
+  const deleteDogById = () => {
+    dispatch(deleteDog(dog.id));
+  };
 
   return (
     <li
@@ -28,7 +34,7 @@ function DogCard({ dog, deleteDog }: DogCardProps) {
             <button
               aria-label={`Delete ${dog.name}`}
               className="rounded px-3 py-1 text-amber-700 hover:bg-amber-300 hover:text-amber-900 active:bg-amber-500 active:text-amber-900 dark:text-amber-600 dark:hover:bg-neutral-500 dark:hover:text-amber-300 dark:active:bg-neutral-800 dark:active:text-neutral-900"
-              onClick={() => deleteDog(dog.id)}
+              onClick={deleteDogById}
             >
               <FontAwesomeIcon icon={faX} />
             </button>

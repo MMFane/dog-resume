@@ -22,11 +22,6 @@ function DogList() {
   const dogs = useAppSelector(selectAllDogs);
   const dogsStatus = useAppSelector(selectDogsStatus);
 
-  // todo: replace with redux version
-  function deleteDog(id: string) {
-    //   client.models.Dog.delete({ id });
-  }
-
   useEffect(() => {
     if (dogsStatus === 'idle') {
       dispatch(fetchDogs());
@@ -42,7 +37,7 @@ function DogList() {
       {dogsStatus === 'idle' && dogs.length === 0 && emptyMessage}
       <ul className="flex w-full flex-wrap">
         {dogs.map(dog => (
-          <DogCard dog={dog} deleteDog={deleteDog} key={dog.id} />
+          <DogCard dog={dog} key={dog.id} />
         ))}
       </ul>
     </div>
