@@ -1,23 +1,24 @@
-import { useState, useEffect } from 'react';
-import type { Schema } from '../../../../amplify/data/resource';
-import type { Dog } from '../../../types/types';
-import { generateClient } from 'aws-amplify/data';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import DogCard from './DogCard';
-const client = generateClient<Schema>();
+import { fetchDogs, selectAllDogs, selectDogsStatus } from './dogsSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 
 function DogList() {
-  const [dogs, setDogs] = useState<Array<Dog>>([]);
+  const dispatch = useAppDispatch();
+  const dogs = useAppSelector(selectAllDogs);
+  const dogsStatus = useAppSelector(selectDogsStatus);
+
+  // todo: replace with redux version
+  function deleteDog(id: string) {
+    //   client.models.Dog.delete({ id });
+  }
 
   useEffect(() => {
-    client.models.Dog.observeQuery().subscribe({
-      next: data => setDogs([...data.items]),
-    });
-  }, []);
-
-  function deleteDog(id: string) {
-    client.models.Dog.delete({ id });
-  }
+    if (dogsStatus === 'idle') {
+      dispatch(fetchDogs());
+    }
+  }, [dogsStatus, dispatch]);
 
   return (
     <div className="flex flex-col items-center">
