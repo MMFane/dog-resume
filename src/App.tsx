@@ -7,6 +7,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun } from '@fortawesome/free-regular-svg-icons';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
+import Button from './App/components/Button';
 
 type ThemeMode = 'dark' | 'light';
 
@@ -60,12 +61,7 @@ function App() {
               </ToggleButton>
             </ToggleButtonGroup>
           </div>
-          <button
-            className="rounded-md bg-amber-700 p-3 text-white hover:bg-amber-800 active:bg-amber-900 dark:border dark:border-black dark:bg-neutral-800 dark:text-amber-100 dark:hover:bg-neutral-950 dark:active:bg-black dark:active:text-amber-200"
-            onClick={signOut}
-          >
-            Sign out
-          </button>
+          <Button text="Sign Out" onClick={signOut} />
         </div>
       </div>
       <div className="p-8">
