@@ -19,7 +19,7 @@ function DogCard({ dog, deleteDog }: DogCardProps) {
       key={dog.id}
     >
       <div className="flex">
-        <ProfileImg height="40" additionalStyling="border-r" />
+        <ProfileImg additionalStyling="border-r max-h-40" />
         <div className="w-full">
           <div className="align-center flex justify-between rounded-tr-md border-b border-amber-200 p-2 dark:border-neutral-800">
             <Link to={`/dogs/${dog.id}`}>

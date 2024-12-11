@@ -63,7 +63,7 @@ function DogDetail() {
           </li>
         </ul>
       </div>
-      <ProfileImg height="64" additionalStyling="border" />
+      <ProfileImg additionalStyling="border max-h-64" />
     </div>
   );
 
