@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import DogCard from './DogCard';
-import LoadingSpinner from '../../components/LoadingSpinner';
+
 import { fetchDogs, selectAllDogs, selectDogsStatus } from './dogsSlice';
 import { useAppDispatch, useAppSelector } from '../../hooks';
+
+import DogCard from './DogCard';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 const emptyMessage = (
   <p className="w-full text-center dark:text-neutral-200">
