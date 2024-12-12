@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import { useAppDispatch } from '../../hooks';
@@ -10,6 +9,7 @@ import { calculateAge } from '../../../utils/age-utils';
 
 import ProfileImg from './ProfileImg';
 import DeleteForm from '../../components/DeleteForm';
+import IconButton from '../../components/IconButton';
 
 interface DogCardProps {
   dog: Dog;
@@ -42,13 +42,11 @@ function DogCard({ dog }: DogCardProps) {
             <Link to={`/dogs/${dog.id}`}>
               <h2 className="p-1 font-bold dark:text-amber-100">{dog.name}</h2>
             </Link>
-            <button
-              aria-label={`Delete ${dog.name}`}
-              className="rounded px-3 py-1 text-amber-700 hover:bg-amber-300 hover:text-amber-900 active:bg-amber-500 active:text-amber-900 dark:text-amber-600 dark:hover:bg-neutral-500 dark:hover:text-amber-300 dark:active:bg-neutral-800 dark:active:text-neutral-900"
+            <IconButton
+              ariaLabel={`Delete ${dog.name}`}
               onClick={() => setShowDeleteForm(true)}
-            >
-              <FontAwesomeIcon icon={faTrash} />
-            </button>
+              icon={faTrash}
+            />
           </div>
           <div className="rounded-md p-2 text-amber-900 dark:text-amber-200">
             <p className="dark: italic text-amber-700 dark:text-amber-300">
