@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
-import type { Dog } from '../../../types/types';
 import { useParams } from 'react-router-dom';
-import { calculateAge } from '../../../utils/age-utils';
-import DetailSection from '../../components/DetailSection';
-import ProfileImg from './ProfileImg';
-import Button from '../../components/Button';
+
 import { useAppSelector, useAppDispatch } from '../../hooks';
 import { selectDogById, selectDogsStatus, deleteDog } from './dogsSlice';
+import { calculateAge } from '../../../utils/age-utils';
+import type { Dog } from '../../../types/types';
+
+import Button from '../../components/Button';
+import DetailSection from '../../components/DetailSection';
 import DeleteForm from '../../components/DeleteForm';
+import ProfileImg from './ProfileImg';
+import FormEditDog from './FormEditDog';
 
 function DogDetail() {
   const { dogId } = useParams();
@@ -17,9 +20,14 @@ function DogDetail() {
   const dogsStatus = useAppSelector(selectDogsStatus);
   const [dogAge, setDogAge] = useState<number>(99);
   const [showDeleteForm, setShowDeleteForm] = useState(false);
+  const [showEditForm, setShowEditForm] = useState(false);
 
   const deleteDogById = () => {
     dispatch(deleteDog(dogId!));
+  };
+
+  const editDog = () => {
+    console.log('to implement: dispatch edit');
   };
 
   useEffect(() => {
@@ -34,7 +42,7 @@ function DogDetail() {
             <h3 className="pr-2 text-xl font-bold text-amber-800 dark:text-amber-300 dark:opacity-85">
               Description
             </h3>
-            {dog.description ? <p>{dog.description}</p> : <p>---</p>}
+            <p>{dog.description || '---'}</p>
           </li>
           <li className="pb-2">
             <h3 className="text-xl font-bold text-amber-800 dark:text-amber-300 dark:opacity-85">
@@ -73,10 +81,22 @@ function DogDetail() {
             resourceType="Dog"
             resourceName={dog.name!}
           />
+          <FormEditDog
+            isOpen={showEditForm}
+            dog={dog}
+            handleClose={() => setShowEditForm(false)}
+          />
           <h1 className="mb-4 p-2 text-3xl font-bold text-amber-800 dark:text-amber-100 dark:opacity-85">
             {dog.name}
           </h1>
-          <DetailSection title="Details" content={dogDetails(dog)} />
+          <DetailSection
+            title="Details"
+            content={dogDetails(dog)}
+            editable
+            onClick={() => {
+              setShowEditForm(true);
+            }}
+          />
           <DetailSection
             title="Health Information"
             content={<p>Coming soon</p>}

@@ -7,13 +7,15 @@ import IconButton from './IconButton';
 interface DetailSectionProps {
   title: string;
   content: React.ReactNode;
+  onClick?: () => void;
   editable?: boolean;
 }
 
 function DetailSection({
-  editable = false,
   title,
   content,
+  onClick,
+  editable = false,
 }: DetailSectionProps) {
   return (
     <div className="mb-4 w-full justify-between rounded-md bg-amber-100 dark:bg-neutral-700">
@@ -24,7 +26,11 @@ function DetailSection({
             ariaLabel={`Edit ${title} section`}
             icon={faPen}
             size="xs"
-            onClick={() => console.log('to implement: edit')}
+            onClick={() => {
+              if (editable && onClick) {
+                return onClick();
+              }
+            }}
           />
         )}
       </h2>
