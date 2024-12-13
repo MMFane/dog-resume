@@ -24,7 +24,9 @@ function FormCreateDog() {
     formState: { errors },
     reset,
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = async data => {
+
+  const onSubmit: SubmitHandler<Inputs> = async (data, event) => {
+    event?.preventDefault();
     await dispatch(addDog(data));
     notify(data.name);
     reset();

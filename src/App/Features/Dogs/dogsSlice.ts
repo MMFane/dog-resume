@@ -19,6 +19,11 @@ type NewDog = Pick<
   'name' | 'description' | 'birthdate' | 'weight' | 'breed'
 >;
 
+type UpdatedDog = Pick<
+  Dog,
+  'id' | 'name' | 'description' | 'birthdate' | 'weight' | 'breed'
+>;
+
 export const fetchDogs = createAppAsyncThunk(
   'dogs/fetchDogs',
   async () => {
@@ -48,6 +53,14 @@ export const addDog = createAppAsyncThunk(
   'dogs/addDog',
   async (data: NewDog) => {
     const response = await client.models.Dog.create(data);
+    return response.data;
+  }
+);
+
+export const editDog = createAppAsyncThunk(
+  'dogs/editDog',
+  async (data: UpdatedDog) => {
+    const response = await client.models.Dog.update(data);
     return response.data;
   }
 );
@@ -89,6 +102,28 @@ const dogsSlice = createSlice({
         }
       })
       .addCase(addDog.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message ?? 'Unknown Error';
+      })
+      .addCase(editDog.pending, state => {
+        state.status = 'pending';
+      })
+      .addCase(editDog.fulfilled, (state, action) => {
+        if (action.payload) {
+          const { id, birthdate, breed, description, name, weight } =
+            action.payload;
+          const currentDog = state.dogs.find(dog => dog.id == id);
+          if (currentDog) {
+            currentDog.birthdate = birthdate;
+            currentDog.breed = breed;
+            currentDog.description = description;
+            currentDog.name = name;
+            currentDog.weight = weight;
+          }
+          state.status = 'succeeded';
+        }
+      })
+      .addCase(editDog.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message ?? 'Unknown Error';
       })

@@ -26,10 +26,6 @@ function DogDetail() {
     dispatch(deleteDog(dogId!));
   };
 
-  const editDog = () => {
-    console.log('to implement: dispatch edit');
-  };
-
   useEffect(() => {
     setDogAge(dog ? calculateAge(dog.birthdate!) : 99);
   }, [dog]);
