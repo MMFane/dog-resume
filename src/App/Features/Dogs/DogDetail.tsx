@@ -10,7 +10,7 @@ import Button from '../../components/Button';
 import DetailSection from '../../components/DetailSection';
 import DeleteForm from '../../components/DeleteForm';
 import ProfileImg from './ProfileImg';
-import FormEditDog from './FormEditDog';
+import DogForm from './DogForm';
 
 function DogDetail() {
   const { dogId } = useParams();
@@ -77,9 +77,10 @@ function DogDetail() {
             resourceType="Dog"
             resourceName={dog.name!}
           />
-          <FormEditDog
+          <DogForm
             isOpen={showEditForm}
             dog={dog}
+            mode="edit"
             handleClose={() => setShowEditForm(false)}
           />
           <h1 className="mb-4 p-2 text-3xl font-bold text-amber-800 dark:text-amber-100 dark:opacity-85">

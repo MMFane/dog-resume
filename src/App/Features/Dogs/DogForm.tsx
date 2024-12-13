@@ -1,53 +1,65 @@
 import { useEffect } from 'react';
+
 import { Modal } from '@mui/material';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Dog } from '../../../types/types';
 import type { Inputs } from './FormCreateDog';
 import { useAppDispatch } from '../../hooks';
-import { editDog } from './dogsSlice';
+import { addDog, editDog, fetchDogs } from './dogsSlice';
 
 import FormQuestion from '../../components/FormQuestion';
 
 interface FormEditDogProps {
-  dog: Dog;
   isOpen: boolean;
+  mode: 'add' | 'edit';
   handleClose: () => void;
+  dog?: Dog; // needed for edit, not needed for add
 }
 
-function FormEditDog({ dog, isOpen, handleClose }: FormEditDogProps) {
+function DogForm({ dog, isOpen, mode, handleClose }: FormEditDogProps) {
   const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
     setValue,
     formState: { errors },
+    reset,
   } = useForm<Inputs>();
 
   useEffect(() => {
-    setValue('name', dog.name as string);
-    setValue('description', (dog.description as string) || '');
-    setValue('weight', dog.weight as number);
-    setValue('breed', dog.breed as string);
-    setValue('birthdate', (dog.birthdate as string) || '');
-  }, [setValue]);
+    setValue('name', dog?.name as string);
+    setValue('description', (dog?.description as string) || '');
+    setValue('weight', dog?.weight as number);
+    setValue('breed', dog?.breed as string);
+    setValue('birthdate', (dog?.birthdate as string) || '');
+  }, [setValue, dog]);
 
   const onSubmit: SubmitHandler<Inputs> = async (data, event) => {
     event?.preventDefault();
-    console.log('data', data, 'id', dog.id);
-    dispatch(editDog({ ...data, id: dog.id }));
+    mode === 'edit'
+      ? dispatch(editDog({ ...data, id: dog!.id }))
+      : await dispatch(addDog(data));
+    dispatch(fetchDogs());
+    reset();
+    handleClose();
   };
+
+  if (mode === 'edit' && !dog) {
+    console.warn('Dog must be set in Edit forms');
+  }
 
   return (
     <div>
       <Modal
         open={isOpen}
-        aria-label={`Edit ${dog.name}`}
+        aria-label={mode === 'edit' ? `Edit ${dog?.name}` : 'Add Dog'}
         onClose={handleClose}
       >
         <div id="spacer" className="flex h-full items-center">
           <div className="mx-auto flex flex-col items-center rounded-lg bg-amber-200 p-8">
-            <h2>Edit {dog.name}</h2>
+            <h2>{mode === 'edit' ? `Edit ${dog?.name}` : 'Add Dog'}</h2>
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="flex w-96 flex-col"
@@ -117,4 +129,4 @@ function FormEditDog({ dog, isOpen, handleClose }: FormEditDogProps) {
   );
 }
 
-export default FormEditDog;
+export default DogForm;
