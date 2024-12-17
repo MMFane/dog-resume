@@ -10,7 +10,6 @@ import { Authenticator } from '@aws-amplify/ui-react';
 import { Amplify } from 'aws-amplify';
 import outputs from '../amplify_outputs.json';
 import '@aws-amplify/ui-react/styles.css';
-import FormCreateDog from './App/Features/Dogs/FormCreateDog.tsx';
 
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
@@ -24,10 +23,6 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        path: '/add-dog',
-        element: <FormCreateDog />,
-      },
       {
         path: '/dogs',
         element: <DogList />,

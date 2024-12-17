@@ -5,11 +5,18 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Dog } from '../../../types/types';
-import type { Inputs } from './FormCreateDog';
 import { useAppDispatch } from '../../hooks';
 import { addDog, editDog, fetchDogs } from './dogsSlice';
 
 import FormQuestion from '../../components/FormQuestion';
+
+export type Inputs = {
+  name: string;
+  description: string;
+  weight: number;
+  breed: string;
+  birthdate: string;
+};
 
 interface FormEditDogProps {
   isOpen: boolean;

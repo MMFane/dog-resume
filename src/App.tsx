@@ -44,7 +44,6 @@ function App() {
     <main className="min-h-full w-full bg-amber-50 dark:bg-neutral-800">
       <div className="sticky top-0 flex w-full items-center justify-between bg-amber-400 p-2 dark:bg-neutral-600">
         <div>
-          <NavLink linkText="Add Dog" route="/add-dog" />
           <NavLink linkText="Your Dogs" route="/dogs" />
         </div>
         <div className="flex items-center">
