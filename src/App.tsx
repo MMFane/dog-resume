@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+
 import { useAuthenticator } from '@aws-amplify/ui-react';
-import NavLink from './App/components/NavLink';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun } from '@fortawesome/free-regular-svg-icons';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+
+import NavLink from './App/components/NavLink';
 import Button from './App/components/Button';
 
 type ThemeMode = 'dark' | 'light';

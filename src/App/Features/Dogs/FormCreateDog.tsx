@@ -1,9 +1,7 @@
-import { Link } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { useAppDispatch } from '../../hooks';
 import { addDog } from './dogsSlice';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import FormQuestion from '../../components/FormQuestion';
@@ -28,12 +26,8 @@ function FormCreateDog() {
   const onSubmit: SubmitHandler<Inputs> = async (data, event) => {
     event?.preventDefault();
     await dispatch(addDog(data));
-    notify(data.name);
     reset();
   };
-
-  const notify = (name: string) =>
-    toast(<Link to={`/dogs`}>{name} added</Link>);
 
   return (
     <div className="flex flex-col items-center p-4">
@@ -94,7 +88,6 @@ function FormCreateDog() {
           className="mt-4 rounded-md bg-amber-700 p-3 text-white hover:bg-amber-600 active:bg-amber-800 dark:bg-amber-800 dark:hover:bg-amber-700 dark:active:bg-amber-900"
         />
       </form>
-      <ToastContainer />
     </div>
   );
 }
